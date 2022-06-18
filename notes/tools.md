@@ -29,7 +29,7 @@ Opisano poniżej następujące narzędzia i rozszerzenia JavaScript:
 * [commonmark](https://commonmark.org/)
 * [markdown](https://commonmark.org/help/)
 
-## 17.1. Inspekcja kodu za pomocą narzędzia ESLint
+## Inspekcja kodu za pomocą narzędzia ESLint
 
 Słowo lint (kłaczek) oznacza fragment kodu, który z technicznego punktu widzenia jest poprawny, ale nieestetyczny,
 nieoptymalny i zawiera potencjalne błędy. **Linter** jest narzędziem wykrywającym tego rodzaju mankamenty, a
@@ -38,7 +38,7 @@ przestaną się pojawiać komunikaty ostrzegawcze.
 
 Obecnie najpopularniejszym linterem dla języka JavaScript jest [ESLint](https://eslint.org).
 
-## Pierwsze kroki z ESLint
+### Pierwsze kroki z ESLint
 
 `ESLint` to narzędzie do identyfikowania i raportowania wzorców znalezionych w kodzie `ECMAScript/JavaScript`, w celu
 uczynienia kodu bardziej spójnym i uniknięcia błędów. Pod wieloma względami jest podobny do `JSLint` i `JSHint` z
@@ -116,7 +116,7 @@ szczegółów można znaleźć w [dokumentacji konfiguracyjnej](https://eslint.o
 
 Twój plik konfiguracyjny `.eslintrc.{js,yml,json}` będzie również zawierał linię:
 
-```
+```json
 {
     "extends": "eslint:recommended"
 }
@@ -126,7 +126,7 @@ Z powodu tego wiersza wszystkie reguły oznaczone „✓” na stronie reguł zo
 konfiguracji utworzonych przez innych, wyszukując „eslint-config” w `npmjs.com`. ESLint nie będzie lintować twojego
 kodu, chyba że rozszerzysz go ze współdzielonej konfiguracji lub jawnie włączysz reguły w twojej konfiguracji.
 
-## Następne kroki
+### Następne kroki
 
 * Dowiedz się o [zaawansowanej konfiguracji](https://eslint.org/docs/user-guide/configuring/) ESLint.
 * Zapoznaj się z [opcjami wiersza poleceń](https://eslint.org/docs/user-guide/command-line-interface).
@@ -144,7 +144,19 @@ folder*). Jeśli folder go nie zawiera, rozszerzenie szuka globalnej wersji inst
 ESLint ani lokalnie, ani globalnie, zrób to, uruchamiając `npm install eslint` w folderze obszaru roboczego w przypadku
 instalacji lokalnej lub `npm install -g eslint` w przypadku instalacji globalnej.
 
-## 17.7. Rozszerzenie JSX: znaczniki w kodzie JavaScript
+## Prettier vs Eslint
+
+### Jak to się ma do ESLint/TSLint/stylelint itp.?
+
+Linters mają dwie kategorie zasad:
+
+1. **Zasady formatowania: np:** [max-len](https://eslint.org/docs/rules/max-len), [bez mieszanych spacji i tabulatorów](https://eslint.org/docs/rules/no-mixed-spaces-and-tabs), [odstępy między słowami kluczowymi](https://eslint.org/docs/rules/keyword-spacing), [styl przecinka](https://eslint.org/docs/rules/comma-style)… Prettier łagodzi potrzebę stosowania całej tej kategorii zasad! Prettier zamierza przedrukować cały program od zera w spójny sposób, więc programista nie może się już tam pomylić :) 
+
+2. **Zasady jakości kodu: np.** brak nieużywanych zmiennych, brak dodatkowego wiązania, brak ukrytych wartości globalnych, błędy preferowanej obietnicy odrzucenia…
+  
+Prettier nie robi nic, aby pomóc w tego rodzaju zasadach. Są one również najważniejszymi z tych dostarczanych przez linterów, ponieważ mogą wyłapać prawdziwe błędy w twoim kodzie! Innymi słowy, użyj Prettier do formatowania i linterów do łapania błędów!
+
+## Rozszerzenie JSX: znaczniki w kodzie JavaScript
 
 JSX jest rozszerzeniem języka JavaScript umożliwiającym definiowania drzewa elementów za pomocą znaczników podobnych do
 stosowanych w kodzie HTML. Rozszerzenie to jest wykorzystawane na platformie React do tworzenia przzeglądarkowych

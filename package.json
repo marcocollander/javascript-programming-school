@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/marcocollander/javascript-programming-school/issues"
   },
-  "homepage": "https://github.com/marcocollander/javascript-programming-school#readme"
+  "homepage": "https://github.com/marcocollander/javascript-programming-school#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
 }
