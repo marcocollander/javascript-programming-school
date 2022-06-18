@@ -175,8 +175,6 @@ node ./scripts/destruct.js
 
 W celu uruchomienia skryptu znajdującego się w folderze scripts, który jest podkatalogiem bieżącego folderu aplikacji.
 
-
-
 # 18. Ajax
 
 ## 18.1. Wprowadzenie do Ajaksa. Część I
@@ -192,9 +190,7 @@ Do definiowania i wydawania żądń służy obiekt JavaScript `XMLHttpRequest`. 
 2. Obsługa dodatkowych zdarzeń, funkcji ułatwiających pracę z elementami `form` oraz obsługę pokrewnych specyfikacji,
    m.in. `CORS`
 
-# Bibliografia
-
-<hr>
+## Bibliografia
 
 1. David Flanagan, JavaScript. Przewodnik. Poznaj język mistrzów programowania, Gliwice: Helion SA, 2021. ISBN
    978-83-283-7309-9

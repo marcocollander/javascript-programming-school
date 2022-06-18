@@ -1,0 +1,20 @@
+{
+  "name": "javascript-programming-school",
+  "version": "1.0.0",
+  "description": "JavaScript tutorial as the first language to learn programming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcocollander/javascript-programming-school.git"
+  },
+  "keywords": [],
+  "author": "Zenon Marek Raubuć",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcocollander/javascript-programming-school/issues"
+  },
+  "homepage": "https://github.com/marcocollander/javascript-programming-school#readme"
+}
