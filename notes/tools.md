@@ -27,6 +27,92 @@ Opisano poniżej następujące narzędzia i rozszerzenia JavaScript:
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
 
+## Formattowanie kodu za pomocą programu Prettier
+
+Prettier wymusza spójny styl, analizując kod i ponownie drukując go z własnymi regułami, które uwzględniają maksymalną długość linii, zawijając kod w razie potrzeby.
+
+### Konfiguracja Prettier'a w VSC
+
+#### Domyślny formater
+
+Aby upewnić się, że to rozszerzenie jest używane z innymi rozszerzeniami, które mogłeś zainstalować, pamiętaj, aby ustawić je jako domyślny program formatujący w ustawieniach VS Code. To ustawienie można ustawić dla wszystkich języków lub według określonego języka.
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  „[javascript]”: {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+Jeśli chcesz wyłączyć Prettier w określonym języku, możesz utworzyć plik .prettierignore lub użyć ustawień editor.defaultFormatter programu VS Code.
+
+Poniższe będzie używać Prettier dla wszystkich języków z wyjątkiem JavaScript.
+
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  „[javascript]”: {
+    "editor.defaultFormatter": "<inny program formatujący>"
+  }
+}
+
+Poniższe użyje Prettier tylko dla JavaScript.
+
+{
+  "editor.defaultFormatter": "<inny program formatujący>",
+  „[javascript]”: {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+
+Dodatkowo możesz wyłączyć formatowanie podczas zapisywania dla określonych języków, jeśli nie chcesz, aby były one automatycznie formatowane.
+
+{
+  „[javascript]”: {
+    "editor.formatOnSave": fałsz
+  }
+}
+
+Ładniejsza rozdzielczość
+To rozszerzenie będzie używać ładniejszych z lokalnych zależności Twojego projektu (zalecane). Gdy prettier.resolveGlobalModules ma wartość true, rozszerzenie może również próbować rozwiązać moduły globalne. Jeśli ładniejsza nie zostanie zainstalowana lokalnie z zależnościami projektu lub globalnie na komputerze, zostanie użyta wersja ładniejsza, która jest dołączona do rozszerzenia.
+
+Aby zainstalować ładniejsze w swoim projekcie i przypiąć jego wersję zgodnie z zaleceniami, uruchom:
+
+npm zainstaluj ładniej -D --save-exact
+
+UWAGA: Zostaniesz poproszony o potwierdzenie, że chcesz, aby rozszerzenie załadowało moduł Prettier. Ma to na celu upewnienie się, że nie ładujesz modułu lub skryptu, który nie jest zaufany.
+
+Wtyczki
+To rozszerzenie obsługuje wtyczki Prettier, gdy używasz lokalnie lub globalnie rozwiązanej wersji Prettier. Jeśli masz Prettier i wtyczkę zarejestrowaną w swoim package.json, to rozszerzenie spróbuje zarejestrować język i zapewnić automatyczne formatowanie kodu dla języków wbudowanych i wtyczek.
+
+Konfiguracja
+Istnieje wiele opcji konfigurowania Prettier za pomocą tego rozszerzenia. Możesz użyć ustawień programu VS Code, ładniejszych plików konfiguracyjnych lub pliku .editorconfig. Ustawienia programu VS Code mają być używane jako rezerwa i generalnie są przeznaczone tylko do użytku w plikach innych niż projekt. Zaleca się, aby zawsze dołączyć do projektu ładniejszy plik konfiguracyjny, określający wszystkie ustawienia projektu. Zapewni to, że bez względu na to, jak uruchomisz ładniej - z tego rozszerzenia, z CLI lub z innego IDE z ładniejszymi, zostaną zastosowane te same ustawienia.
+
+Zalecanym podejściem jest używanie plików konfiguracji Prettier do ustawiania opcji formatowania. Opcje są przeszukiwane rekursywnie w dół od formatowanego pliku, więc jeśli chcesz zastosować ładniejsze ustawienia do całego projektu, po prostu ustaw konfigurację w katalogu głównym. Ustawienia można również skonfigurować za pomocą programu VS Code — jednak ustawienia te będą miały zastosowanie tylko podczas uruchamiania rozszerzenia, a nie podczas uruchamiania ładniejszego za pomocą wiersza poleceń.
+
+Konfiguracja opcji domyślnych
+Niektórzy użytkownicy mogą nie chcieć tworzyć nowej konfiguracji Prettier dla każdego projektu lub używać ustawień VS Code. Aby ustawić domyślną konfigurację, ustaw prettier.configPath. Należy jednak uważać, jeśli ta wartość jest ustawiona, ta wartość będzie zawsze używana, a lokalne pliki konfiguracyjne będą ignorowane.
+
+Ustawienia kodu programu Visual Studio
+Możesz użyć ustawień VS Code, aby skonfigurować ładniejsze. Ustawienia zostaną odczytane z (wymienione według priorytetu):
+
+Ładniejszy plik konfiguracyjny
+.editorconfig
+Ustawienia kodu programu Visual Studio (ignorowane, jeśli obecna jest jakakolwiek inna konfiguracja)
+UWAGA: Jeśli istnieje jakikolwiek lokalny plik konfiguracyjny (np. .prettierrc), ustawienia VS Code NIE będą używane.
+
+Stosowanie
+Korzystanie z palety poleceń (CMD/CTRL + Shift + P)
+1. CMD + Shift + P -> Formatuj dokument
+LUB
+1. Wybierz tekst, który chcesz upiększyć
+2. CMD + Shift + P -> Wybór formatu
+
+Skróty klawiszowe
+Visual Studio Code udostępnia domyślne skróty klawiaturowe do formatowania kodu. Możesz dowiedzieć się o nich dla każdej platformy w dokumentacji VS Code
+
+
 ## Rozszerzenie JSX: znaczniki w kodzie JavaScript
 
 JSX jest rozszerzeniem języka JavaScript umożliwiającym definiowania drzewa elementów za pomocą znaczników podobnych do
