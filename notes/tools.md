@@ -4,26 +4,65 @@ W tym rodziałe opisano narzędzia przydatne dla każdego programisty oraz te na
 
 Do pierwszej kategorii zaliczają się takie narzędzia jak:
 
-* wiersz poleceń
-* system kontroli wersji
-* zintegrowane środowisko programistyczne
+- wiersz poleceń
+- system kontroli wersji
+- zintegrowane środowisko programistyczne
 
-Opisano poniżej następujące narzędzia i rozszerzenia JavaScript:
+Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
-* narzędzie ESLint do wyszukiwania błędów i niewłaściwego stylu kodu,
-* narzędzie Prettier do formatowania kodu,
-* narzędzie Jest do pisania testów jednostkowych,
-* narzędzie npm do instalowania bibliotek,
-* narzędzia webpack, Rollup i Parcel do scalania osobnych modułów w jeden duży moduł, gotowy do użycia w przeglądarce,
-* narzędzie Babel do tłumaczenia kodu wykorzystującego najnowsze funkcjonalności języka (lub jego rozszerzenia) na kod,
+- ESLint do wyszukiwania błędów i niewłaściwego stylu kodu,
+- Prettier do formatowania kodu,
+- Jest do pisania testów jednostkowych,
+- Npm do instalowania bibliotek,
+- Webpack, parcel i gulp do scalania osobnych modułów w jeden duży moduł, gotowy do użycia w przeglądarce,
+- Babel do tłumaczenia kodu wykorzystującego najnowsze funkcjonalności języka (lub jego rozszerzenia) na kod,
   który można uruchamiać w przeglądarce
-* rozszerzenie JSX (stosowane w platformie React) umożliwiające kodowanie interfejsu użytkownika za pomocą wyrażeń
+- rozszerzenie JSX (stosowane w platformie React) umożliwiające kodowanie interfejsu użytkownika za pomocą wyrażeń
   JavaScriptu podobnych do znaczników HTML,
-* rozszerzenie Flow (podobne do TypeScriptu) umożliwiające opatrywanie kodu adnotacjami i sprawdzanie poprawności typów
+- rozszerzenie TypeScript umożliwiające sprawdzanie poprawności typów
   danych.
-* [markdownlint](https://github.com/DavidAnson/markdownlint)
-* [commonmark](https://commonmark.org/)
-* [markdown](https://commonmark.org/help/)
+- [markdownlint](https://github.com/DavidAnson/markdownlint)
+- [commonmark](https://commonmark.org/)
+- [markdown](https://commonmark.org/help/)
+
+## System kontroli wersji
+
+### Instalacja programu Git
+
+<!-- TODO -->
+Oprogramowanie Git dla platform Windows, Linux oraz Mac znajdziesz [tutaj](http://git-scm.com/downloads). Uruchom plik `EXE`. Po zatwierdzeniu licencji, przejdziesz do wyboru komponentów. Zalecam skorzystanie z domyślnych opcji. Warto zostawić zaznaczoną opcję Windows Explorer integration (integracja z Eksploratorem Windows), dzięki której wystarczy kliknąć folder prawym przyciskiem myszy, aby móc uruchomić Gita w systemowym interfejsie graficznym lub wierszu poleceń z poziomu menu kontekstowego. Następnie przejdź wyboru domyślnego edytora, który wybierzesz z rozwijanej listy. W kolejnym okienku instalatora dostosujesz zmienną PATH. Trzecia opcja powoduje, że do ścieżek dostępu dodane zostaną ścieżki prowadzące do programu git oraz do narzędzi ssh, wc itd. Następnie wybieramy pierwszą opcję, aby nasze połączenia ze zdalnym repozytorium były szyfrowane. 
+
+Następny krok dotyczy znaków końca linii. Konfiguracja odbywa się na ekranie wyboru (rysunek 2.8). Różne systemy operacyjne obsługują pliki tekstowe na różny sposób, zwłaszcza w odniesieniu do znaków końca linii, przy czym zachodzi duże prawdopodobieństwo, że członkowie Twojego
+zespołu korzystają z różnych systemów. Git musi zatem konwertować znaki zakończenia linii pomiędzy poszczególnymi konwencjami, kiedy przekazuje commity.
+
+Ponieważ będziesz korzystać z systemu Windows, wybierz domyślną opcję. Pozostałe dwie mogą doprowadzić do poważnych uszkodzeń Twoich commitów, jeśli nie będziesz ostrożnie się obchodzić ze znakami końca linii.
+
+Następne opcje pozostaw bez zmian.
+
+### Konfiguracja Gita
+
+<!-- Ponieważ Git jest rozproszonym system wersji, istnieje potrzeba łączenia się z innymi repozytoriami zdalnymi, toteż musimy określić swoją tożsamość. -->
+
+Aby dowiedzieć się o wersji zainstalowanego oprogramwania w wierszu poleceń należy wpisać:
+
+```bash
+git --version
+```
+
+Wydając polecenie:
+
+```bash
+ git config -l
+```
+
+sprawdzisz, jakie obecnie obowiązują ustawienia. Wszystkie rewizje w repozytorium zawierają informację o autorze. Do ustalenia danych autora służą komendy:
+
+```bash
+git config --global user.name "Imie Nazwisko"
+git config --global user.email you@example.com
+```
+
+W systemie Windows powyższe dane zapisywane są w pliku .gitconfig w folderze użytkownika, np. C:\Users\nazwakonta\.gitconfig. Plik ten powinien być zakodowany w UTF-8.
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
 
@@ -44,7 +83,7 @@ JSX wymaga transpilacji do zwykłago kodu JavaScript za pomocą narzędzia Babel
 zostanie przekształcone do wywołania nastepującej funkcji:
 
 ```javascript
-const line = React.createElement('hr', null); 
+const line = React.createElement('hr', null);
 ```
 
 Element reactowy (jsx-owy) może mieć atrybuty tak jak element HTML:
@@ -75,13 +114,13 @@ const sidebar = (
 Powyższy kod zostanie skompilowany do takiego:
 
 ```javascript
-"use strict";
+'use strict';
 
 const sidebar = React.createElement(
-  "div",
-  { className: "sidebar" },
-  React.createElement("h1", null, "Title"),
-  React.createElement("p", null, "To jest pasek boczny")
+  'div',
+  { className: 'sidebar' },
+  React.createElement('h1', null, 'Title'),
+  React.createElement('p', null, 'To jest pasek boczny')
 );
 ```
 
@@ -104,22 +143,22 @@ const sidebar = (className, title, content, drawLine = true) => {
       {drawLine && <hr />}
       <p>{content}</p>
     </div>
-  )
-}
+  );
+};
 ```
 
 Zostanie to skompilowane do następującego kodu:
 
 ```javascript
-"use strict";
+'use strict';
 
 const sidebar = (className, title, content, drawLine = true) => {
   return React.createElement(
-    "div",
+    'div',
     { className: className },
-    React.createElement("h1", null, title),
-    drawLine && React.createElement("hr", null),
-    React.createElement("p", null, content)
+    React.createElement('h1', null, title),
+    drawLine && React.createElement('hr', null),
+    React.createElement('p', null, content)
   );
 };
 ```
@@ -132,28 +171,26 @@ W elementach JSX mogą być osadzone dowolne wyrażenia JavaScript, czyli np. ob
 
 const list = (items, cb) => {
   return (
-    <ul style={{ padding: 10, border: "solid red 4px" }}>
-      {
-        items.map((item, index) => <li onClick={() => cb(index)} key={index}>{item}</li>)
-      }
+    <ul style={{ padding: 10, border: 'solid red 4px' }}>
+      {items.map((item, index) => (
+        <li onClick={() => cb(index)} key={index}>
+          {item}
+        </li>
+      ))}
     </ul>
-  )
-}
-
+  );
+};
 ```
 
 ```javascript
-"use strict";
+'use strict';
 
 const list = (items, cb) => {
   return React.createElement(
-    "ul",
-    { style: { padding: 10, border: "solid red 4px" } },
+    'ul',
+    { style: { padding: 10, border: 'solid red 4px' } },
     items.map((item, index) =>
-      React.createElement("li",
-        { onClick: () => cb(index), key: index },
-        item
-      )
+      React.createElement('li', { onClick: () => cb(index), key: index }, item)
     )
   );
 };
@@ -174,7 +211,7 @@ właściwości”, a zwracanym wynikiem wyrażenie `JSX`. Obiekt właściwości 
 atrybutów, podobnie jak obiekt umieszczany w drugim argumencie funkcji `createElement()`.
 
 ```jsx
-const Sidebar = props => (
+const Sidebar = (props) => (
   <div>
     <h1>{props.title}</h1>
     {props.drawLine && <hr />}
@@ -186,18 +223,16 @@ const Sidebar = props => (
 Funkcja w takiej postaci reprezentuje komponent React i w wyrażeniu JSX można jej użyć w miejscu nazwy znacznika `HTML`:
 
 ```jsx
-const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska" />
+const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska" />;
 ```
 
 Element `<Sidebar/>` zostanie przekształcony w następujący kod:
 
 ```javascript
-const sidebar = React.createElement(
-  Sidebar,
-  {
-    title: 'Tytuł paska',
-    constent: 'Zawartość paska'
-  });
+const sidebar = React.createElement(Sidebar, {
+  title: 'Tytuł paska',
+  constent: 'Zawartość paska',
+});
 ```
 
 Platforma `React`, przekształcając to proste wyrażenie JSX, umieści drugi argument, czyli obiekt
@@ -219,11 +254,11 @@ być zagnieżdżone w sobie lub w sobie na dowolnej głębokości.
 
 Aby Twoje zadania zostały wykonane w odpowiedniej kolejności, użyj metody series().
 
-[//]: # (TODO Examples)
+[//]: # 'TODO Examples'
 
 Aby zadania działały z maksymalną współbieżnością, połącz je z metodą Parallel().
 
-[//]: # (TODO Example)
+[//]: # 'TODO Example'
 
 ## 17.n. Markdown
 
@@ -253,23 +288,23 @@ Markdown można odczytać, nawet jeśli nie jest renderowany.
 
 ### 17.n.2. Dlaczego warto korzystać z Markdown?
 
-* Markdown można wykorzystać do wszystkiego. Ludzie używają go do
+- Markdown można wykorzystać do wszystkiego. Ludzie używają go do
   tworzenia [stron internetowych](https://www.markdownguide.org/getting-started/#websites),
-* [dokumentów](https://www.markdownguide.org/getting-started/#documents),
+- [dokumentów](https://www.markdownguide.org/getting-started/#documents),
   [notatek](https://www.markdownguide.org/getting-started/#notes),
   [książek](https://www.markdownguide.org/getting-started/#books),
   [prezentacji](https://www.markdownguide.org/getting-started/#presentations),
   [wiadomości e-mail](https://www.markdownguide.org/getting-started/#books) i
   [dokumentacji technicznej](https://www.markdownguide.org/getting-started/#documentation).
-* Markdown jest przenośny. Pliki zawierające tekst w formacie Markdown można otwierać za pomocą praktycznie dowolnej
+- Markdown jest przenośny. Pliki zawierające tekst w formacie Markdown można otwierać za pomocą praktycznie dowolnej
   aplikacji.
-* Markdown jest niezależny od platformy. Tekst w formacie Markdown można tworzyć na dowolnym urządzeniu z dowolnym
+- Markdown jest niezależny od platformy. Tekst w formacie Markdown można tworzyć na dowolnym urządzeniu z dowolnym
   systemem operacyjnym.
-* Markdown jest dowodem na przyszłość. Nawet jeśli aplikacja, której używasz, przestanie działać w pewnym momencie w
+- Markdown jest dowodem na przyszłość. Nawet jeśli aplikacja, której używasz, przestanie działać w pewnym momencie w
   przyszłości, nadal będziesz mógł czytać tekst sformatowany w Markdown za pomocą aplikacji do edycji tekstu. Jest to
   ważna kwestia, jeśli chodzi o książki, prace dyplomowe i inne ważne dokumenty, które należy przechowywać w
   nieskończoność.
-* Markdown jest wszędzie. Witryny takie jak [Reddit](https://www.markdownguide.org/tools/reddit/) i GitHub obsługują
+- Markdown jest wszędzie. Witryny takie jak [Reddit](https://www.markdownguide.org/tools/reddit/) i GitHub obsługują
   Markdown, a wiele aplikacji komputerowych i
   internetowych obsługuje go.
 
@@ -324,7 +359,6 @@ innych [generatorów stron statycznych](https://jamstack.org/generators/). Najci
 to [Next.js](https://jamstack.org/generators/next/) i [Gatsby](https://jamstack.org/generators/gatsby/) gdyż są oparte o
 React'a i hostowane przez Netlify
 
-
 > Jekyll został użyty do stworzenia przewodnika po [Markdown](https://www.markdownguide.org/). Kod źródłowy
 > na [GitHub](https://github.com/mattcone/markdown-guide).
 
@@ -344,17 +378,19 @@ Natomiast witryny z własnym hostingiem mogą korzystać z wtyczki [Jetpack](htt
 Markdown jest wystarczająco dobry do tworzenia podstawowych dokumentów, takich jak zadania i listy. Za pomocą aplikacji do tworzenia dokumentów Markdown można tworzyć i eksportować dokumenty w formacie Markdown do formatu PDF lub HTML. Część PDF jest kluczowa, ponieważ gdy już masz dokument PDF, możesz z nim zrobić wszystko — wydrukować go, wysłać pocztą e-mail lub przesłać na stronę internetową.
 
 Godne polecenia aplikacje dla sytemu operacyjnego Windows to:
-* [ghostwriter](https://wereturtle.github.io/ghostwriter/)
-* [Markdown Monster](https://markdownmonster.west-wind.com/)
+
+- [ghostwriter](https://wereturtle.github.io/ghostwriter/)
+- [Markdown Monster](https://markdownmonster.west-wind.com/)
 
 #### Notatki
+
 Markdown jest idealną składnią do robienia notatek. Niestety, Evernote i OneNote, dwie najpopularniejsze aplikacje do obsługi notatek, nie obsługują obecnie języka Markdown. Kilka innych aplikacji do obsługi notatek obsługuje Markdown:
 
-* [Obsidian]() to popularna aplikacja do robienia notatek w Markdown, pełna funkcji.
-* [Simplenote]() to darmowa, prosta aplikacja do robienia notatek, dostępna na każdą platformę.
-* [Notable]() to aplikacja do robienia notatek, która działa na różnych platformach
-* [Joplin]() to aplikacja do robienia notatek, która szanuje Twoją prywatność. Jest dostępny na każdą platformę
-* [Boostnote]() reklamuje się jako „aplikacja do robienia notatek o otwartym kodzie źródłowym przeznaczona dla programistów”.
+- [Obsidian]() to popularna aplikacja do robienia notatek w Markdown, pełna funkcji.
+- [Simplenote]() to darmowa, prosta aplikacja do robienia notatek, dostępna na każdą platformę.
+- [Notable]() to aplikacja do robienia notatek, która działa na różnych platformach
+- [Joplin]() to aplikacja do robienia notatek, która szanuje Twoją prywatność. Jest dostępny na każdą platformę
+- [Boostnote]() reklamuje się jako „aplikacja do robienia notatek o otwartym kodzie źródłowym przeznaczona dla programistów”.
 
 Jeśli nie możesz rozstać się z Evernote, sprawdź [Marxico](), oparty na subskrypcji edytor Markdown dla Evernote, lub użyj [Markdown Here]() na stronie Evernote.
 
@@ -364,8 +400,8 @@ Chcesz samodzielnie opublikować powieść? Wypróbuj [Leanpub](), usługę, kt�
 
 ### Bibliografia do działu Markdown
 
-<hr> 
+<hr>
 
-* Markdown Guide, https://www.markdownguide.org/
-* Tutorial Markdown, https://commonmark.org/help/tutorial/index.html
-* Tables Generator, https://www.tablesgenerator.commarkdown_tables                                                     
+- Markdown Guide, https://www.markdownguide.org/
+- Tutorial Markdown, https://commonmark.org/help/tutorial/index.html
+- Tables Generator, https://www.tablesgenerator.commarkdown_tables
