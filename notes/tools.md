@@ -151,8 +151,113 @@ LUB
 Skróty klawiszowe
 Visual Studio Code udostępnia domyślne skróty klawiaturowe do formatowania kodu. Możesz dowiedzieć się o nich dla każdej platformy w dokumentacji VS Code
 
+## Zarządzanie pakietami za pomocą narzędzia npm
+
+Obecnie w każdym projekcie wykorzystuje się zewwnętrzne biblioteki, które łatwo się wyszykuje i instaluje za pomocą menadżera pakietów takiego jak `npm`, czyli `Node Package Manager`. Rejestruje on w pliku *`package.json`*, umieszczonym w katalogu głównym projektu, zależności pomiędzy bibliotekami inne informacje o programie.
+
+Na początku tworzymy katalog projektu i w wierszu poleceń (w konsoli) wydajemy  polecenie:
+
+```bash
+npm init -y
+```
+
+Zostanie automatycznie utworzony plik *`package.json`*.
+
+Następnie poleceniem:
+
+```bash
+npm i -D/-S/ <name_package> 
+
+# -D instaliją się zależności potrzebne na etapie developmentu projektu, np. narzędzia Prettier, Sass czy Eslint
+# -S instalują się zależności potrzebne do działania projektu, np. taka
+# biblioteka jak Express czy React. Tą flagę można pominąć jest ona domyślną.
+```
+
+instalujemy potrzebne w projekcie pakiety bibliotek.
+
+Tak utworzony plik wraz z kodem programu możesz przekazać innemu programiście, który wpisze polecenie `npm install/i` i automatycznie pobierze i zainstaluje wszystkie biblioteki wymagane do uruchomienia Twojego programu w katalogu *`node_modules`*
+
+Pakiety możemy odinstalować za pomocą polecenia:
+
+```bash
+npm uninstall <name_package>
+```
+
+Razem z menedżerem `npm` jest dostarczany program `npx`, dzięki któremu można uruchamiać lokalnie zainstalowane narzędzia.
+
+### Task runner
+
+Praca z task runnerem ma nie tylko wymiar edukacyjny, ale sprawdza się w pracy z mniejszzymi projektami. W pracy `web developera` często pojawiają się sytuacje, w których potrzebuje dostosować task runner do własnych potrzeb, dlatego umiejętność rozumienia działania prostego task runnera jest kluczowa. Webpack jest kombajnem, który świetnie nadaje się do pracy z dużymi projektami, dla małych jest przerośniętym rozwiązaniem. Webapack to coś więcej niż task runnera, gdyż oprócz wszystkich funkcji task runnera ma wiele innych dodadkowych funkcjonalności.
+
+### Czym jest task runner?
+
+Task runner służy do uruchamiania wielu narzędzi za pomocą jednej komendy. Co więcej, takich komend może być kilka i każda z nich będzie służyła do innego celu. Na przykład inny zestaw narzędzi będzie potrzebny do bieżącej pracy nad projektem niż do wygenerowania plików gotowych do publikacji na serwerze.
+
+![task runner](../images/taskrunner.png)
+
+**Task runner** pozwoli na przyspieszenie i automatyzację czynności, które musimy często wykonywać. Nie będzie potrzeby pamiętania które narzędzia trzeba uruchomić w danym projekcie - zwykle będzie to się ograniczać do jednej z kilku komend, które będą takie same w większości projektów.
+
+Istnieje wiele task runnerów, ale my wykorzystamy skrypty `NPMa` do stworzenia własnego, prostego `task runnera`. Takie rozwiązanie jest najprostsze w konfiguracji i pozwoli nam samodzielnie rozbudować zestaw narzędzi wykorzystywanych do pracy nad projektami.
+
+Alternatywa dla task runnera są narzędzia: Gulp, Parcel czy Webpack.
+
+### Instalacja Node.js
+
+Przed rozpoczęciem instalacji sprawdź, czy masz obecnie zainstalowany Node.js. W tym celu w terminalu wykonaj komendy:
+
+```bash
+node -v
+```
+
+Następnie należy zaktualizować `npm`:
+
+```bash
+npm i -g npm@latest
+```
+
+### Utworzenie  w projekcie `Game-rock-paper-scissors` pliku package.json
+
+Tworzymy na dysku lokalnym katalog *`Game-rock-paper-scissors`*, a w nim wwierszy poleceń wydajemy komendę:
+
+```bash
+npm init -y
+```
+
+![npm init](../images/npminit.png)
+
+### Dodajemy plik .gitignore
+
+Tworzymy plik `.gitignore` a w nim wpisujemy:
+
+```bash
+# ide
+.idea/
+.vscode/
+
+# build, dependencies
+build/
+dist/
+node_modules/
+package.lock.json
+```
+
+## Pakowanie kodu
+
+Program duży, wykorzystujący zewnętrzne moduły  dla przeglądarek  będzie potrzebował narzędzia do pakowania kodu. Moduły ES6 pojawiły się zanim przeglądarki zaczęły obsługiwać instrukcje import i export. Aby móc korzystać z modułów, programiści stosowali narzędzia pakujące, które analizowały kod począwszy od jego głównego punktu wejścia, śledziły instrukcje import, wyszukiwały wszystkie wykorzystywane moduły i łączyły poszczególne pliki w jeden duży plik oraz usuwały instrukcje import i export. Tak uzyskany plik mógł być załadowany do przeglądarki, która nie obsługiwała modułów.
+
+Dzisiaj moduły ES6 są obsługiwane przez wszystkie przeglądarki, jednak programiści wciąż używają narzędzi pakujących, szczególnie do tworzenia kodu produkcyjnego. Okazuje się, że wrażenia użytkownika są lepsze, gdy przeglądarka, otwierając stronę, ładuje jeden średniej wielkości pakiet kodu niż wiele małych modułów.
+
+ Całkowitą kontrolę mamy tylko nad jednym czynnikiem: wielkością kodu. Krótszy kod zawsze ładuje się i działa szybciej niż dłuższy!
+
+ <!-- TODO -->
+
+### Webpack
+
+## Transpilacja kodu za pomocą narzędzia Babel
+<!-- TODO -->
 
 ## Rozszerzenie JSX: znaczniki w kodzie JavaScript
+<!-- TODO -->
 
 JSX jest rozszerzeniem języka JavaScript umożliwiającym definiowania drzewa elementów za pomocą znaczników podobnych do
 stosowanych w kodzie HTML. Rozszerzenie to jest wykorzystawane na platformie React do tworzenia przzeglądarkowych
