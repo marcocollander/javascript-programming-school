@@ -925,15 +925,93 @@ Przyjrzyj się temu subtaskowi i prześledź ścieżkę, którą podąża. Zauwa
 
 #### **Budujemy task watch**
 
-Mając to wszystko, możemy złożyć w całość nasz task `watch`. Chcemy, by na samym początku uruchamiał on task ``build. Jest to dobra praktyka, do której warto się stosować. Już na tym etapie pomoże nam to uniknąć błędów, ponieważ task `build` uruchamia task `test`, więc unikniemy sytuacji, gdy o jakimś błędzie dowiemy się dopiero po zakończeniu prac nad projektem. W przyszłości możesz dodać do niego więcej zadań, które będą wykonywać inne operacje potrzebne do prawidłowego działania Twojej strony.
+Mając to wszystko, możemy złożyć w całość nasz task `watch`. Chcemy, by na samym początku uruchamiał on task `build`. Jest to dobra praktyka, do której warto się stosować. Już na tym etapie pomoże nam to uniknąć błędów, ponieważ task `build` uruchamia task `test`, więc unikniemy sytuacji, gdy o jakimś błędzie dowiemy się dopiero po zakończeniu prac nad projektem. W przyszłości możesz dodać do niego więcej zadań, które będą wykonywać inne operacje potrzebne do prawidłowego działania Twojej strony.
 Bezpośrednio po zbudowaniu wersji produkcyjnej, będziemy chcieli ponownie zbudować style, tym razem jednak z wykorzystaniem taska `build-dev`. Dzięki temu, po uruchomieniu taska `watch`, będziemy mieli zbudowaną wersję developerską styli.
 Następnie `watch` powinien uruchamiać subtaski `watch:sassprefixer` i npm run `watch:browsersync`. Wykorzystamy tutaj znów `npm-run-all`, tym razem z flagą `-p` (skrót od flagi `--parallel`). Pozwala na uruchamianie innych tasków w trybie równoległym, czyli tak, jakby każdy z nich był uruchomiony w osobnym oknie terminala.
+
+`"watch": "npm-run-all build:* build-dev:* -p watch:*"`
+
+### **Update task runner**
+
+Będziemy wersję projektu do publikacji tzw. wersję produkcyjną umieszczać w katalogu `dist`, do którego zostaną przekopiowane przetestowane  pliki z katalogu `src` po komendzie `build`.
+
+#### **Dodatkowe pakiety**
+
+#### **onchange**
+
+`"watch:sassprefixer": "onchange \"src/sass/**/*.scss\" -- npm run build-dev"`,
+`"watch:copy": "onchange -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" -- copyfiles -a -u 1 {{changed}} dist"`
+
+#### **rimraf**
+
+`"build:clean": "rimraf dist && mkdirp dist",`
+
+#### **copyfiles**
+
+`"build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",`
+
+### **Gotowy task runner"
+
+```json
+{
+  "name": "game-rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "Simple game as a demo of the task runner configuration",
+  "main": "app.js",
+  "scripts": {
+    "init-project": "npm i && npm-run-all init:*",
+    "init:dirs": "mkdirp dist src/sass src/images src/js",
+    "init:files": "touch README.md .gitignore src/index.html src/sass/main.scss src/js/app.js",
+    "test": "npm-run-all test:*",
+    "test:html": "html-validate src/*.html",
+    "test:js": "eslint src/js/",
+    "test:scss": "stylelint src/sass/",
+    "build": "npm-run-all build:* test",
+    "build:clean": "rimraf dist && mkdirp dist",
+    "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
+    "build:sass": "sass --style=compressed --no-source-map src/sass:dist/css",
+    "build:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
+    "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
+    "build-dev:sass": "sass --style=expanded --source-map src/sass:dist/css",
+    "watch": "npm-run-all build build-dev -p watch:*",
+    "watch:browsersync": "browser-sync start --server dist --files \"dist/**/*\"",
+    "watch:sassprefixer": "onchange \"src/sass/**/*.scss\" -- npm run build-dev",
+    "watch:copy": "onchange -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" -- copyfiles -a -u 1 {{changed}} dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "browser-sync": "^2.27.10",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.19.0",
+    "globstar": "^1.0.0",
+    "html-validate": "^7.1.1",
+    "mkdirp": "^1.0.4",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.53.0",
+    "stylelint": "^14.9.1",
+    "stylelint-scss": "^4.2.0"
+  }
+}
+
+```
+
 
 ### **Rozpoczynanie nowego projektu**
 
 Od teraz, rozpoczynając nowy projekt, będziesz kopiować do niego już nie tylko plik `package.json`, ale też plik `.eslintrc.json`. Jeśli w swoim projekcie użyjesz również opcjonalnych narzędzi, kopiuj również pliki `.editorconfig`, oraz `.stylelintrc.json`.
 
 Najlepiej stwórz sobie teraz projekt o nazwie `project-template` i skopiuj do niego te pliki.
+
+### **Template project**
+
+
 
 ## Pakowanie kodu
 
