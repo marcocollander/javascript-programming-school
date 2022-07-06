@@ -5,6 +5,11 @@
 # Dependency directories
 node_modules/
 
+# projects
+
+Game-rock-paper-scissors/
+
+
 
 
 
