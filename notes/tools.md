@@ -263,11 +263,11 @@ npm uninstall <name_package>
 
 Razem z menedżerem `npm` jest dostarczany program `npx`, dzięki któremu można uruchamiać lokalnie zainstalowane narzędzia.
 
-### Task runner
+### **Task runner**
 
 Praca z task runnerem ma nie tylko wymiar edukacyjny, ale sprawdza się w pracy z mniejszzymi projektami. W pracy `web developera` często pojawiają się sytuacje, w których potrzebuje dostosować task runner do własnych potrzeb, dlatego umiejętność rozumienia działania prostego task runnera jest kluczowa. Webpack jest kombajnem, który świetnie nadaje się do pracy z dużymi projektami, dla małych jest przerośniętym rozwiązaniem. Webapack to coś więcej niż task runnera, gdyż oprócz wszystkich funkcji task runnera ma wiele innych dodadkowych funkcjonalności.
 
-### Czym jest task runner?
+### **Czym jest task runner**?
 
 Task runner służy do uruchamiania wielu narzędzi za pomocą jednej komendy. Co więcej, takich komend może być kilka i każda z nich będzie służyła do innego celu. Na przykład inny zestaw narzędzi będzie potrzebny do bieżącej pracy nad projektem niż do wygenerowania plików gotowych do publikacji na serwerze.
 
@@ -279,9 +279,9 @@ Istnieje wiele task runnerów, ale my wykorzystamy skrypty `NPMa` do stworzenia 
 
 Alternatywa dla task runnera są narzędzia: Gulp, Parcel czy Webpack.
 
-### Instalacja Node.js
+### **Instalacja Node.js**
 
-Przed rozpoczęciem instalacji sprawdź, czy masz obecnie zainstalowany Node.js. W tym celu w terminalu wykonaj komendy:
+Przed rozpoczęciem instalacji sprawdź, czy masz obecnie zainstalowany `Node.js`. W tym celu w terminalu wykonaj komendę:
 
 ```bash
 node -v
@@ -293,9 +293,9 @@ Następnie należy zaktualizować `npm`:
 npm i -g npm@latest
 ```
 
-### Utworzenie  w projekcie `Game-rock-paper-scissors` pliku package.json
+### **Utworzenie  w projekcie `Game-rock-paper-scissors` pliku package.json**
 
-Tworzymy na dysku lokalnym katalog *`Game-rock-paper-scissors`*, a w nim wwierszy poleceń wydajemy komendę:
+Tworzymy na dysku lokalnym katalog *`Game-rock-paper-scissors`*, a w nim w wierszy poleceń wydajemy komendę:
 
 ```bash
 npm init -y
@@ -303,7 +303,7 @@ npm init -y
 
 ![npm init](../images/npminit.png)
 
-### Dodajemy plik .gitignore
+### **Dodajemy plik .gitignore**
 
 Tworzymy plik `.gitignore` a w nim wpisujemy:
 
@@ -316,58 +316,55 @@ Tworzymy plik `.gitignore` a w nim wpisujemy:
 build/
 dist/
 node_modules/
-package.lock.json
+package-lock.json
 ```
 
 ### Instalujemy pakiety
 
 ```bash
 npm i -D browser-sync
-npm i -D autoprefixer
-npm i -D postcss postcss-cli
-npm i -D html-validate
 ```
 
-### Budujemy task runnera
+### **Budujemy task runnera**
 
 Zainstalowaliśmy nowe narzędzia pomagające w pracy nad projektem i wiemy jak się nimi posługiwać. Nie ma jednak potrzeby, żeby tracić czas na uruchamianie każdego z nich z osobna. Dlatego zaautomatyzujemy uruchamianie naszych narzędzi - zbudujemy prosty `task runner` oparty o skrypty `NPM`. Skrypty czyli aliasy wykonujące zdefiniowane komendy.
 
 W task runnarze definujemy następujące taski:
 
-- build, który konwertuje pliki źródłowe na pliki gotowe do opublikowania na serwerze - np. może to być skonwertowanie plików .scss na .css, użycie Autoprefixera, minifikacja plików .js i/lub .css (zmniejszenie ich rozmiaru m.in. poprzez usunięcie spacji i enterów), etc.,
-- watch, który działa w trakcie pracy nad projektem i na bieżąco wykonuje potrzebne operacje na plikach, np. konwertuje pliki .scss na .css po każdym zapisaniu pliku .scss,
-- test, który sprawdza poprawność kodu, np. przeprowadzając walidację składni plików .html, .css i/lub .js.
+- `build`, który konwertuje pliki źródłowe na pliki gotowe do opublikowania na serwerze - np. może to być skonwertowanie plików .scss na .css, użycie Autoprefixera, minifikacja plików .js i/lub .css (zmniejszenie ich rozmiaru m.in. poprzez usunięcie spacji i enterów), etc.,
+- `watch`, który działa w trakcie pracy nad projektem i na bieżąco wykonuje potrzebne operacje na plikach, np. konwertuje pliki .scss na .css po każdym zapisaniu pliku .scss,
+- `test`, który sprawdza poprawność kodu, np. przeprowadzając walidację składni plików .html, .css i/lub .js.
 
 Dzięki standaryzacji tych nazw tasków w każdym projekcie uruchamia się je w ten sam sposób, nawet jeśli uruchamiają one różne narzędzia.
 
 Każdy task może uruchamiać również inne taski, więc np. `build` może uruchamiać task `test`, aby każde wygenerowanie wersji "produkcyjnej" wiązało się ze sprawdzeniem poprawności kodu.
 
-Ponadto, często stosuje się mniejsze taski, dla zachowania przejrzystości. I tak np. walidacja plików .html może odbywać się w tasku o nazwie `test:html`, który będzie uruchamiany przez task `test`. W tym wypadku dwukropek jest po prostu częścią nazwy, która wygodnie rozdziela nam "kategorię" taska od jego konkretnego przeznaczenia.
+Ponadto, często stosuje się mniejsze taski, dla zachowania przejrzystości. I tak np. walidacja plików `.html` może odbywać się w tasku o nazwie `test:html`, który będzie uruchamiany przez task `test`. W tym wypadku dwukropek jest po prostu częścią nazwy, która wygodnie rozdziela nam "kategorię" taska od jego konkretnego przeznaczenia.
 
-### Struktura task runnera
+### **Struktura task runnera**
 
 Napiszemy trzy taski plus jeden dodatkowy, który przyszpieszy nam rozpoczęcie pracy z nowymi projektami:
 
-- init-project
-  - instalacja niezbędsnych pakietów.
+- `init-project`
+  - instalacja niezbędnych pakietów.
   - stworzenie struktury katalogów
-  - stworzenie pliku README.md i .gitignore
-  - stworzenie pustych plików: src/index.html, src/sass/main.scss, src/js/app.js
-- test
-  - sprawdzanie poprawności html, sass i js
-- build
+  - stworzenie pliku `README.md` i `.gitignore`
+  - stworzenie pustych plików: `src/index.html`, `src/sass/main.scss`, `src/js/app.js`
+- `test`
+  - sprawdzanie poprawności kodu plików `html`, `sass` i `js`
+- `build`
   - konwersja plików .scss do .css
   - uruchomienie Autoprefixera
   - minifikacja pliku .css (usunięcie pustych lini w celu zmiejszenia rozmiaru pliku)
   - przetestowanie poprawności kodu
-- watch
+- `watch`
   - kompilowaniena na bieżąco plików .scss do .css
   - dodawanie prefikserów w plikach .css
   - odświwerzanie pzzeglądarki po każdej zmianie kodu
 
-Każde zadanie w tasku będzie osobną komendą. Następnie task tylko wywoła te komendy w odpowiedniej kolejności.
+Każde zadanie w tasku będzie osobną komendą. Następnie będzie jeden task, który uruchomi te zadania w odpowiedniej kolejności.
 
-Otwieramy w katalogu projektu w edytorze kodu plik package.json. W tym pliku będziemy pisać skrypty naszego task runnera. Plik ten powinien po wydaniu komendy w terminalu:
+Otwieramy w katalogu projektu w edytorze kodu plik `package.json`. W tym pliku będziemy pisać skrypty naszego `task runnera`. Plik ten powinien po wydaniu komendy w terminalu:
 
 ```bash
 npm init -y 
@@ -476,7 +473,7 @@ Nad taskiem `test`, stwórz subtask `init:dirs`. Nazwy subtasków to słowo-kluc
 
 Na końcu każdej linii w pliku `package.json`, oprócz ostatniej, stawiamy przecinek.
 
-#### Stworzenie plików
+#### **Stworzenie plików**
 
 Nad taskiem `test` tworzymy kolejny subtask `init:files`.
 
