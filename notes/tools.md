@@ -106,6 +106,39 @@ Następnie możesz uruchomić ESLint na dowolnym pliku lub katalogu w następuj�
 npx eslint yourfile.js
 ```
 
+## Pierwsze kroki z ESLint
+
+ESLint to narzędzie do identyfikowania i raportowania wzorców znalezionych w kodzie ECMAScript/JavaScript, w celu
+uczynienia go bardziej spójnym i uniknięcia błędów. Pod wieloma względami jest podobny do JSLint i JSHint z kilkoma
+wyjątkami:
+
+* ESLint używa [Espree](https://github.com/eslint/espree) do parsowania JavaScript.
+* ESLint używa AST do oceny wzorców w kodzie.
+* ESLint jest w pełni podłączalny, każda reguła jest wtyczką i możesz dodać więcej w czasie wykonywania.
+
+### Instalacja i użytkowanie
+
+Wymagania wstępne: Node.js (^12.22.0, ^14.17.0 lub >=16.0.0) zbudowany z obsługą SSL. (Jeśli korzystasz z oficjalnej
+dystrybucji Node.js, SSL jest zawsze wbudowany.)
+
+Możesz zainstalować i skonfigurować `ESLint` za pomocą tego polecenia:
+
+```bash
+npm init @eslint/config
+```
+
+**Uwaga:** `npm init @eslint/config` zakłada, że masz już plik `package.json`. Jeśli nie, upewnij się, że wcześniej
+uruchomiłeś `npm init` . Następnie możesz uruchomić `ESLint` na dowolnym pliku lub katalogu w następujący
+sposób:
+
+```bash
+npx eslint yourfile.js
+```
+
+Możliwe jest również zainstalowanie `ESLint` globalnie, a nie lokalnie (za pomocą `npm install eslint --global`). Nie jest
+to jednak zalecane, a wszelkie używane wtyczki lub konfiguracje, które można udostępniać, muszą być zainstalowane
+lokalnie w obu przypadkach.
+
 ### Konfiguracja Eslint
 
 Po uruchomieniu `npm init @eslint/config` będziesz miał w swoim katalogu plik `.eslintrc.{js,yml,json}`. W nim zobaczysz
