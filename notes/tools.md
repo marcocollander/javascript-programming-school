@@ -75,15 +75,20 @@ git config --global user.name "Imie Nazwisko"
 git config --global user.email you@example.com
 ```
 
-W systemie Windows powyższe dane zapisywane są w pliku .gitconfig w folderze użytkownika, np. C:
-\Users\nazwakonta\.gitconfig. Plik ten powinien być zakodowany w UTF-8.
+W systemie Windows powyższe dane zapisywane są w pliku `.gitconfig` w folderze użytkownika, np. `C:
+\Users\nazwakonta\.gitconfig`. Plik ten powinien być zakodowany w `UTF-8`.
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
 
-Słowo lint (kłaczek) oznacza fragment kodu, który z technicznego punktu widzenia jest poprawny, ale nieestetyczny,
-nieoptymalny i zawiera potencjalne błędy. **Linter** jest narzędziem wykrywającym tego rodzaju mankamenty, a
-**lintowanie**oznacza czynność polegającą na wielokrotnym uruchamianiu lintera i poprawianiu błędów do momentu, aż
-przestaną się pojawiać komunikaty ostrzegawcze.
+Jednym z powodów stosowania linterów w projektach jest egzekwowanie wśród programistów pracujących w zespole nad
+wspólnym kodem przestrzegania ustalonych konwencji i stylów. Obejmuje to m.in. stosowanie wcięć o określonej głębokości,
+ujmowanie ciągów znaków w apostrofy lub cudzysłowy oraz wstawianie spacji pomiędzy słowami kluczowymi a nawiasami
+otwierającymi.
+
+Słowo **lint** (ang. *kłaczek*) oznacza fragment kodu, który z technicznego punktu widzenia jest poprawny, ale
+nieestetyczny, nieoptymalny i zawiera potencjalne błędy. **Linter** jest narzędziem wykrywającym tego rodzaju
+mankamenty, a **lintowanie**oznacza czynność polegającą na wielokrotnym uruchamianiu lintera i poprawianiu błędów do
+momentu, aż przestaną się pojawiać komunikaty ostrzegawcze.
 
 Obecnie najpopularniejszym linterem dla języka JavaScript jest [ESLint](https://eslint.org).
 
@@ -135,7 +140,8 @@ sposób:
 npx eslint yourfile.js
 ```
 
-Możliwe jest również zainstalowanie `ESLint` globalnie, a nie lokalnie (za pomocą `npm install eslint --global`). Nie jest
+Możliwe jest również zainstalowanie `ESLint` globalnie, a nie lokalnie (za pomocą `npm install eslint --global`). Nie
+jest
 to jednak zalecane, a wszelkie używane wtyczki lub konfiguracje, które można udostępniać, muszą być zainstalowane
 lokalnie w obu przypadkach.
 
@@ -201,6 +207,9 @@ instalacji lokalnej lub `npm install -g eslint` w przypadku instalacji globalnej
 
 ## Formatowanie kodu za pomocą programu Prettier
 
+Nowoczesną alternatywą dla wprowadzania przy użyciu lintera dyscypliny formatowania kodu jest automatyczne analizowanie
+i formatowanie kodu za pomocą narzędzia takiego jak [Prettier](https://prettier.io).
+
 Prettier wymusza spójny styl, analizując kod i ponownie drukując go z własnymi regułami, które uwzględniają maksymalną
 długość linii, zawijając kod w razie potrzeby.
 
@@ -221,7 +230,7 @@ lub według określonego języka.
 }
 ```
 
-Jeśli chcesz wyłączyć Prettier w określonym języku, możesz utworzyć plik .prettierignore lub użyć ustawień
+Jeśli chcesz wyłączyć `Prettier` w określonym języku, możesz utworzyć plik `.prettierignore` lub użyć ustawień
 editor.defaultFormatter programu VS Code.
 
 Poniższe będzie używać Prettier dla wszystkich języków z wyjątkiem JavaScript.
@@ -813,7 +822,7 @@ Wreszcie mamy narzędzia, które działają `prettier`, a potem natychmiast, na 
 - [prettier-eslint](https://github.com/prettier/prettier-eslint)
 - [prettier-stylelint](https://github.com/hugomrdias/prettier-stylelint)
 
-Są one przydatne, jeśli jakiś aspekt produkcji `Prettier` sprawia, że `​​​​Prettier` jest dla ciebie całkowicie
+Są one przydatne, jeśli jakiś aspekt produkcji `Prettier` sprawia, że `Prettier` jest dla ciebie całkowicie
 bezużyteczna. Wtedy możesz mieć na przykład `eslint --fix` napraw to za ciebie. Minusem jest to, że te narzędzia są
 znacznie wolniejsze niż tylko uruchamianie `Prettier`.
 
