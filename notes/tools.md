@@ -31,6 +31,7 @@ Do drugiej kategorii można zaliczyć takie narzędzia jak:
 ### Instalacja programu Git
 
 <!-- TODO -->
+
 Oprogramowanie Git dla platform Windows, Linux oraz Mac znajdziesz [tutaj](http://git-scm.com/downloads). Uruchom
 plik `EXE`. Po zatwierdzeniu licencji, przejdziesz do wyboru komponentów. Zalecam skorzystanie z domyślnych opcji. Warto
 zostawić zaznaczoną opcję Windows Explorer integration (integracja z Eksploratorem Windows), dzięki której wystarczy
@@ -112,9 +113,9 @@ ESLint to narzędzie do identyfikowania i raportowania wzorców znalezionych w k
 uczynienia go bardziej spójnym i uniknięcia błędów. Pod wieloma względami jest podobny do JSLint i JSHint z kilkoma
 wyjątkami:
 
-* ESLint używa [Espree](https://github.com/eslint/espree) do parsowania JavaScript.
-* ESLint używa AST do oceny wzorców w kodzie.
-* ESLint jest w pełni podłączalny, każda reguła jest wtyczką i możesz dodać więcej w czasie wykonywania.
+- ESLint używa [Espree](https://github.com/eslint/espree) do parsowania JavaScript.
+- ESLint używa AST do oceny wzorców w kodzie.
+- ESLint jest w pełni podłączalny, każda reguła jest wtyczką i możesz dodać więcej w czasie wykonywania.
 
 ### Instalacja i użytkowanie
 
@@ -147,14 +148,8 @@ kilka reguł skonfigurowanych w ten sposób:
 ```json
 {
   "rules": {
-    "semi": [
-      "error",
-      "always"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ]
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
   }
 }
 ```
@@ -167,7 +162,7 @@ następujących wartości:
 - `"error"` lub `2` - włącz regułę jako błąd (kod wyjścia będzie wynosił 1)
 
 Trzy poziomy błędów umożliwiają precyzyjną kontrolę nad tym, jak `ESLint` stosuje reguły (więcej opcji konfiguracji i
-szczegółów można znaleźć w [dokumentacji konfiguracyjnej](https://eslint.org/docs/user-guide/configuring/)).
+szczegółów można znaleźć w [dokumentacji konfiguracyjnej](https://eslint.org/docs/user-guide/configuring/).
 
 Twój plik konfiguracyjny `.eslintrc.{js,yml,json}` będzie również zawierał linię:
 
@@ -194,11 +189,64 @@ kodu, chyba że rozszerzysz go ze współdzielonej konfiguracji lub jawnie włą
 
 Integruje ESLint z VS Code. Jeśli jesteś nowy w ESLint, sprawdź [dokumentację](https://eslint.org/).
 
-Rozszerzenie korzysta z biblioteki `ESLint` zainstalowanej w otwartym folderze obszaru roboczego(*ang. opened workspace
-folder*). Jeśli folder go nie zawiera, rozszerzenie szuka globalnej wersji instalacyjnej. Jeśli nie zainstalowałeś
+Rozszerzenie korzysta z biblioteki `ESLint` zainstalowanej w otwartym folderze obszaru roboczego(_ang. opened workspace
+folder_). Jeśli folder go nie zawiera, rozszerzenie szuka globalnej wersji instalacyjnej. Jeśli nie zainstalowałeś
 ESLint ani lokalnie, ani globalnie, zrób to, uruchamiając `npm install eslint` w folderze obszaru roboczego w przypadku
 instalacji lokalnej lub `npm install -g eslint` w przypadku instalacji globalnej.
 
+## Konfiguracja ESLint
+
+ESLint został zaprojektowany tak, aby był elastyczny i konfigurowalny dla twojego przypadku użycia. Możesz wyłączyć każdą regułę i uruchamiać ją tylko z podstawową walidacją składni lub mieszać i dopasowywać reguły powiązane z regułami niestandardowymi, aby dopasować je do potrzeb projektu. Istnieją dwa podstawowe sposoby konfiguracji ESLint:
+
+1. Komentarze konfiguracji — użyj komentarzy JavaScript, aby osadzić informacje o konfiguracji bezpośrednio w pliku.
+2. Pliki konfiguracyjne — użyj pliku JavaScript, JSON lub YAML, aby określić informacje konfiguracyjne dla całego katalogu i wszystkich jego podkatalogów. Może to mieć postać pliku [.eslintrc.*](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats) lub pola `eslintConfig` w pliku [package.json](https://docs.npmjs.com/cli/v8/configuring-npm/package-json), które ESLint będzie wyszukiwać i odczytywać automatycznie, lub można określić plik konfiguracyjny w [wierszu](https://eslint.org/docs/latest/user-guide/command-line-interface) poleceń.
+
+Oto kilka opcji, które możesz skonfigurować w ESLint:
+  
+  *  [Środowiska](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments) — w jakich środowiskach ma działać twój skrypt. Każde środowisko zawiera pewien zestaw predefiniowanych zmiennych globalnych.
+  * [Globals](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals) — dodatkowe zmienne globalne, do których skrypt uzyskuje dostęp podczas wykonywania.
+  * [Reguły](https://eslint.org/docs/latest/user-guide/configuring/rules) - które reguły są włączone i na jakim poziomie błędów.
+  * [Wtyczki](https://eslint.org/docs/latest/user-guide/configuring/plugins) - które wtyczki innych firm definiują dodatkowe reguły, środowiska, konfiguracje itp., z których może korzystać ESLint.
+
+  Wszystkie te opcje dają ci precyzyjną kontrolę nad tym, jak ESLint traktuje twój kod.
+
+  ### Spis treści
+
+  [**Pliki konfiguracyjne**](https://eslint.org/docs/latest/user-guide/configuring/configuration-files)
+
+  * [Formaty plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
+  * [Korzystanie z plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#using-configuration-files)
+  * [Dodawanie wspólnych ustawień](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#adding-shared-settings)
+  * [Kaskadowanie i hierarchia](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#cascading-and-hierarchy)
+  * [Rozszerzanie plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#extending-configuration-files)
+  * [Konfiguracja oparta na wzorcach glob](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-based-on-glob-patterns)
+  * [Osobiste pliki konfiguracyjne](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#personal-configuration-files-deprecated)
+
+  [**Opcje językowe**](https://eslint.org/docs/latest/user-guide/configuring/language-options)
+
+  * [Określanie środowisk](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments)
+  * [Określanie globalnych](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals)
+  * [Określanie opcji parsera](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options)
+
+  [**Reguły**]()
+
+  * [Konfigurowanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#configuring-rules)
+  * [Wyłączanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#disabling-rules)
+
+  [**Wtyczki**](https://eslint.org/docs/latest/user-guide/configuring/plugins)
+
+  * [Określanie parsera](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-parser)
+  * [Określanie procesora](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-processor)
+  * [Konfiguracja wtyczek](https://eslint.org/docs/latest/user-guide/configuring/plugins#configuring-plugins)
+
+  [**Ignorowanie kodu**](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code)
+
+  * [ignorePatterns w plikach konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignorepatterns-in-config-files)
+  * [Plik .eslintignore](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#the-eslintignore-file)
+  * [Korzystanie z alternatywnego pliku](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-an-alternate-file)
+  * [Używanie eslintIgnore w package.json](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-eslintignore-in-packagejson)
+  * [Ostrzeżenia dotyczące ignorowanych plików](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignored-file-warnings)
+  
 ## Formatowanie kodu za pomocą programu Prettier
 
 Prettier wymusza spójny styl, analizując kod i ponownie drukując go z własnymi regułami, które uwzględniają maksymalną
@@ -302,7 +350,7 @@ Korzystanie z palety poleceń (CMD/CTRL + Shift + P)
 1. CMD + Shift + P -> Formatuj dokument
    LUB
 1. Wybierz tekst, który chcesz upiększyć
-2. CMD + Shift + P -> Wybór formatu
+1. CMD + Shift + P -> Wybór formatu
 
 Skróty klawiszowe
 Visual Studio Code udostępnia domyślne skróty klawiaturowe do formatowania kodu. Możesz dowiedzieć się o nich dla każdej
@@ -311,7 +359,7 @@ platformy w dokumentacji VS Code
 ## Zarządzanie pakietami za pomocą narzędzia npm
 
 Obecnie w każdym projekcie wykorzystuje się zewwnętrzne biblioteki, które łatwo się wyszykuje i instaluje za pomocą
-menadżera pakietów takiego jak `npm`, czyli `Node Package Manager`. Rejestruje on w pliku *`package.json`*, umieszczonym
+menadżera pakietów takiego jak `npm`, czyli `Node Package Manager`. Rejestruje on w pliku _`package.json`_, umieszczonym
 w katalogu głównym projektu, zależności pomiędzy bibliotekami inne informacje o programie.
 
 Na początku tworzymy katalog projektu i w wierszu poleceń (w konsoli) wydajemy polecenie:
@@ -320,12 +368,12 @@ Na początku tworzymy katalog projektu i w wierszu poleceń (w konsoli) wydajemy
 npm init -y
 ```
 
-Zostanie automatycznie utworzony plik *`package.json`*.
+Zostanie automatycznie utworzony plik _`package.json`_.
 
 Następnie poleceniem:
 
 ```bash
-npm i -D/-S/ <name_package> 
+npm i -D/-S/ <name_package>
 
 # -D instaliją się zależności potrzebne na etapie developmentu projektu, np. narzędzia Prettier, Sass czy Eslint
 # -S instalują się zależności potrzebne do działania projektu, np. taka
@@ -336,7 +384,7 @@ instalujemy potrzebne w projekcie pakiety bibliotek.
 
 Tak utworzony plik wraz z kodem programu możesz przekazać innemu programiście, który wpisze polecenie `npm install/i` i
 automatycznie pobierze i zainstaluje wszystkie biblioteki wymagane do uruchomienia Twojego programu w
-katalogu *`node_modules`*
+katalogu _`node_modules`_
 
 Pakiety możemy odinstalować za pomocą polecenia:
 
@@ -389,7 +437,7 @@ npm i -g npm@latest
 
 ### **Utworzenie w projekcie `Game-rock-paper-scissors` pliku package.json**
 
-Tworzymy na dysku lokalnym katalog *`Game-rock-paper-scissors`*, a w nim w wierszy poleceń wydajemy komendę:
+Tworzymy na dysku lokalnym katalog _`Game-rock-paper-scissors`_, a w nim w wierszy poleceń wydajemy komendę:
 
 ```bash
 npm init -y
@@ -425,7 +473,7 @@ Zainstalowaliśmy nowe narzędzia pomagające w pracy nad projektem i wiemy jak 
 potrzeby, żeby tracić czas na uruchamianie każdego z nich z osobna. Dlatego zautomatyzujemy uruchamianie naszych
 narzędzi - zbudujemy prosty `task runner` oparty o skrypty `NPM`. Skrypty czyli aliasy wykonujące zdefiniowane komendy.
 
-W task runner definiujemy następujące zadania (ang. *tasks*):
+W task runner definiujemy następujące zadania (ang. _tasks_):
 
 - `build`, który konwertuje pliki źródłowe na pliki gotowe do opublikowania na serwerze - np. może to być skonwertowanie
   plików .scss na .css, użycie autoprefixer, minifikacja plików .js i/lub .css (zmniejszenie ich rozmiaru m.in. poprzez
@@ -434,22 +482,22 @@ W task runner definiujemy następujące zadania (ang. *tasks*):
   konwertuje pliki .scss na .css po każdym zapisaniu pliku .scss,
 - `test`, który sprawdza poprawność kodu, np. przeprowadzając walidację składni plików .html, .css i/lub .js.
 
-Dzięki standaryzacji nazw zadań (ang. *tasks*) w każdym projekcie uruchamia się je w ten sam sposób, nawet jeśli
+Dzięki standaryzacji nazw zadań (ang. _tasks_) w każdym projekcie uruchamia się je w ten sam sposób, nawet jeśli
 uruchamiają one różne narzędzia.
 
-Każde zadanie (ang. *task*) może uruchamiać również inne zadania (ang. *tasks*), więc np. `build` może uruchamiać task
+Każde zadanie (ang. _task_) może uruchamiać również inne zadania (ang. _tasks_), więc np. `build` może uruchamiać task
 `test`, aby każde
 wygenerowanie
 wersji "produkcyjnej" wiązało się ze sprawdzeniem poprawności kodu.
 
-Ponadto, często stosuje się mniejsze zadania (ang. *tasks*), dla zachowania przejrzystości. I tak np. walidacja
-plików `.html` może odbywać się w zadaniu (ang. *task*) o nazwie `test:html`, który będzie uruchamiany przez task
+Ponadto, często stosuje się mniejsze zadania (ang. _tasks_), dla zachowania przejrzystości. I tak np. walidacja
+plików `.html` może odbywać się w zadaniu (ang. _task_) o nazwie `test:html`, który będzie uruchamiany przez task
 `test`. W tym wypadku dwukropek jest po prostu częścią nazwy, która wygodnie rozdziela nam "kategorię" taska od jego
 konkretnego przeznaczenia.
 
 ### **Struktura task runnera**
 
-Napiszemy trzy zadania (ang. *tasks*) plus jeden dodatkowy, który przyspieszy nam rozpoczęcie pracy z nowymi
+Napiszemy trzy zadania (ang. _tasks_) plus jeden dodatkowy, który przyspieszy nam rozpoczęcie pracy z nowymi
 projektami:
 
 - `init-project`
@@ -476,7 +524,7 @@ Otwieramy w katalogu projektu w edytorze kodu plik `package.json`. W tym pliku b
 naszego `task runnera`. Plik ten powinien po wydaniu komendy w terminalu:
 
 ```bash
-npm init -y 
+npm init -y
 ```
 
 wyglądać tak:
@@ -527,7 +575,7 @@ Ten task będzie miał kilka subtasków:
 - stworzenie pliku README.md i .gitignore
 - stworzenie pustych plików: .html, .scss i .js
 
-#### Instalacja niezbędnych  pakietów
+#### Instalacja niezbędnych pakietów
 
 Kiedy dołączasz do istniejącego projektu, w którym jest plik `package.json`, nie musisz ponownie wywoływać
 komendy `npm init -y`. Podobnie będzie w sytuacji, gdy będziesz zakładać nowy projekt, kopiując z poprzedniego
@@ -550,7 +598,6 @@ W pliku `package.json` na taskiem `test` utwórz task `init-project` z komendą 
   "author": "frontend groupe",
   "license": "ISC"
 }
-
 ```
 
 #### Stworzenie katalogów
@@ -728,10 +775,7 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
     "es2021": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -739,18 +783,10 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
     "quotes": [
       "error",
       "single",
@@ -758,20 +794,15 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
         "allowTemplateLiterals": true
       }
     ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "no-console": [
-      "off"
-    ]
+    "semi": ["error", "always"],
+    "no-console": ["off"]
   }
 }
 ```
 
 #### **Prettier**
 
-#### **Jak to się ma do ESLint/TSLint/stylelint itp.?***
+#### **Jak to się ma do ESLint/TSLint/stylelint itp.?\***
 
 Lintnery mają dwie kategorie zasad:
 
@@ -882,9 +913,7 @@ W katalogu swojego projektu stwórz nowy plik `.stylelintrc.json` i wklej poniż
 
 ```json
 {
-  "plugins": [
-    "stylelint-scss"
-  ],
+  "plugins": ["stylelint-scss"],
   "rules": {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
@@ -897,20 +926,14 @@ W katalogu swojego projektu stwórz nowy plik `.stylelintrc.json` i wklej poniż
     "max-nesting-depth": [
       3,
       {
-        "ignore": [
-          "pseudo-classes"
-        ]
+        "ignore": ["pseudo-classes"]
       }
     ],
     "rule-empty-line-before": [
       "always",
       {
-        "except": [
-          "first-nested"
-        ],
-        "ignore": [
-          "after-comment"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
       }
     ],
     "unit-whitelist": null,
@@ -1027,7 +1050,7 @@ pliku w pełnej wersji, wzbogaconego o mapy źródeł, czyli source maps.
 
 #### **Czym jest source map?**
 
-Mapa źródeł, czyli `source map`, może być tworzona w momencie generowania pliku `.css` za pomocą *prekompilatora*, jakim
+Mapa źródeł, czyli `source map`, może być tworzona w momencie generowania pliku `.css` za pomocą _prekompilatora_, jakim
 jest `Sass`. Informuje nas o tym, z której linii którego pliku źródłowego została wygenerowana dana linijka kodu
 wynikowego. Dzięki temu możemy w narzędziach developerskich przeglądarki widzieć, w którym pliku .scss została zapisana
 reguła dla danego elementu.
@@ -1123,7 +1146,7 @@ przekopiowane przetestowane pliki z katalogu `src` po komendzie `build`.
 
 `"build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",`
 
-### **Gotowy task runner"
+### \*\*Gotowy task runner"
 
 ```json
 {
@@ -1172,7 +1195,6 @@ przekopiowane przetestowane pliki z katalogu `src` po komendzie `build`.
     "stylelint-scss": "^4.2.0"
   }
 }
-
 ```
 
 ### **Rozpoczynanie nowego projektu**
@@ -1221,7 +1243,7 @@ internetowej.
 Literały JSX ujmuje się w znaki < i >.
 
 ```jsx
-const line = <hr/>;
+const line = <hr />;
 ```
 
 JSX wymaga transpilacji do zwykłago kodu JavaScript za pomocą narzędzia Babel (lub podobnego). Powyższe wyrażenie
@@ -1234,14 +1256,18 @@ const line = React.createElement('hr', null);
 Element reactowy (jsx-owy) może mieć atrybuty tak jak element HTML:
 
 ```jsx
-const image = <img src="logo" alt="Logo JSX" hidden/>;
+const image = <img src="logo" alt="Logo JSX" hidden />;
 ```
 
 Atrybuty elemntu reactowego są przekształcane we właściwości obiektu, który jest umieszczany w drugim argumencie funkcji
 createElement:
 
 ```javascript
-const image = React.createElement('img', {src: 'logo', alt: 'Logo JSX', hidden: true});
+const image = React.createElement('img', {
+  src: 'logo',
+  alt: 'Logo JSX',
+  hidden: true,
+});
 ```
 
 Elementy JSX, tak jak elementy HTML mogą zawierać elementy potomne:
@@ -1250,10 +1276,10 @@ Elementy JSX, tak jak elementy HTML mogą zawierać elementy potomne:
 const sidebar = (
   <div className="sidebar">
     <h1>Title</h1>
-    <hr/>
+    <hr />
     <p>To jest pasek boczny </p>
   </div>
-)
+);
 ```
 
 Powyższy kod zostanie skompilowany do takiego:
@@ -1263,7 +1289,7 @@ Powyższy kod zostanie skompilowany do takiego:
 
 const sidebar = React.createElement(
   'div',
-  {className: 'sidebar'},
+  { className: 'sidebar' },
   React.createElement('h1', null, 'Title'),
   React.createElement('p', null, 'To jest pasek boczny')
 );
@@ -1285,7 +1311,7 @@ const sidebar = (className, title, content, drawLine = true) => {
   return (
     <div className={className}>
       <h1>{title}</h1>
-      {drawLine && <hr/>}
+      {drawLine && <hr />}
       <p>{content}</p>
     </div>
   );
@@ -1300,7 +1326,7 @@ Zostanie to skompilowane do następującego kodu:
 const sidebar = (className, title, content, drawLine = true) => {
   return React.createElement(
     'div',
-    {className: className},
+    { className: className },
     React.createElement('h1', null, title),
     drawLine && React.createElement('hr', null),
     React.createElement('p', null, content)
@@ -1316,7 +1342,7 @@ W elementach JSX mogą być osadzone dowolne wyrażenia JavaScript, czyli np. ob
 
 const list = (items, cb) => {
   return (
-    <ul style={{padding: 10, border: 'solid red 4px'}}>
+    <ul style={{ padding: 10, border: 'solid red 4px' }}>
       {items.map((item, index) => (
         <li onClick={() => cb(index)} key={index}>
           {item}
@@ -1333,9 +1359,9 @@ const list = (items, cb) => {
 const list = (items, cb) => {
   return React.createElement(
     'ul',
-    {style: {padding: 10, border: 'solid red 4px'}},
+    { style: { padding: 10, border: 'solid red 4px' } },
     items.map((item, index) =>
-      React.createElement('li', {onClick: () => cb(index), key: index}, item)
+      React.createElement('li', { onClick: () => cb(index), key: index }, item)
     )
   );
 };
@@ -1359,7 +1385,7 @@ atrybutów, podobnie jak obiekt umieszczany w drugim argumencie funkcji `createE
 const Sidebar = (props) => (
   <div>
     <h1>{props.title}</h1>
-    {props.drawLine && <hr/>}
+    {props.drawLine && <hr />}
     <p>{props.content}</p>
   </div>
 );
@@ -1368,7 +1394,7 @@ const Sidebar = (props) => (
 Funkcja w takiej postaci reprezentuje komponent React i w wyrażeniu JSX można jej użyć w miejscu nazwy znacznika `HTML`:
 
 ```jsx
-const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska"/>;
+const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska" />;
 ```
 
 Element `<Sidebar/>` zostanie przekształcony w następujący kod:
@@ -1561,8 +1587,7 @@ dowiedzieć się więcej o pisaniu i samodzielnym publikowaniu książek za pomo
 
 - Markdown Guide, <https://www.markdownguide.org/>
 - Tutorial Markdown, <https://commonmark.org/help/tutorial/index.html>
-- Tables Generator, <https://www.tablesgenerator.commarkdown_tables>
-  =======
+- # Tables Generator, <https://www.tablesgenerator.commarkdown_tables>
 
 - Markdown Guide, <https://www.markdownguide.org/>
 
