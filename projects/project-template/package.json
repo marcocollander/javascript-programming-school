@@ -28,7 +28,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https:/marcocollander.github.io/your-repo",
+  "homepage": "https:/your-account.github.io/your-repo",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "browser-sync": "^2.27.10",
