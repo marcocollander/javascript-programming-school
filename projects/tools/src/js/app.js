@@ -1,23 +1,24 @@
-const sum = (a, b) => a + b;
+// const sum = (a, b) => a + b;
 
-console.log(sum(3, 4));
+// console.log(sum(3, 4));
 
-var param = 12;
+// var param = 12;
 
-console.log(param);
+// console.log(param);
 
-var x = 'unused';
+// var x = 'unused';
 
-export function factorial(x) {
-  if (x == 1) {
-    return 1;
-  } else {
-    return x * factorial(x - 1);
-  }
-}
-// 
+// export function factorial(x) {
+//   if (x == 1) {
+//     return 1;
+//   } else {
+//     return x * factorial(x - 1);
+//   }
+// }
+// //
 
-/* 
+// /*
 
+// */
 
-*/
+const sum  = (a, b) => a + b;
