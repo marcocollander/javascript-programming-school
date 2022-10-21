@@ -28,13 +28,11 @@ Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
 ## System kontroli wersji
 
-### Instalacja programu Git
+### Instalacja  Gita
 
 <!-- TODO -->
 
-Oprogramowanie Git dla platform Windows, Linux oraz Mac znajdziesz [tutaj](http://git-scm.com/downloads). Uruchom
-plik `EXE`. Po zatwierdzeniu licencji, przejdziesz do wyboru komponentów. Zalecam skorzystanie z domyślnych opcji. Warto
-zostawić zaznaczoną opcję Windows Explorer integration (integracja z Eksploratorem Windows), dzięki której wystarczy
+Oprogramowanie Git dla platform Windows znajdziesz [tutaj](https://git-scm.com/download/win). Wybierz link `64-bit Git for Windows Setup` aby pobrać na swój komputer plik instalatora.  Uruchom plik `.exe`. Po zatwierdzeniu licencji, przejdz do wyboru komponentów. Skorzystaj z domyślnych opcji. Zostaw zaznaczoną opcję Windows Explorer integration (integracja z Eksploratorem Windows), dzięki której wystarczy
 kliknąć folder prawym przyciskiem myszy, aby móc uruchomić Gita w systemowym interfejsie graficznym lub wierszu poleceń
 z poziomu menu kontekstowego. Następnie przejdź wyboru domyślnego edytora, który wybierzesz z rozwijanej listy. W
 kolejnym okienku instalatora dostosujesz zmienną PATH. Trzecia opcja powoduje, że do ścieżek dostępu dodane zostaną
