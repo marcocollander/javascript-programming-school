@@ -1,30 +1,29 @@
 # Narzędzia ułatwiające pracę programisty a w szczególności programisty JavaScript
 
-W tym rozdziale opisano narzędzia przydatne dla każdego programisty oraz te, których na co dzień używa programista
+W tym rozdziale opisano narzędzia przydatne dla każdego programisty oraz te, które na co dzień stosuje programista
 JavaScript:
 
 Do pierwszej kategorii zaliczają się takie narzędzia jak:
 
-- wiersz poleceń
-- system kontroli wersji
-- zintegrowane środowisko programistyczne
+- wiersz poleceń,
+- system kontroli wersji,
+- zintegrowane środowisko programistyczne.
 
 Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
-- ESLint do wyszukiwania błędów i niewłaściwego stylu kodu,
-- Prettier do formatowania kodu,
-- Jest do pisania testów jednostkowych,
-- Npm do instalowania bibliotek,
-- Webpack, parcel i gulp do scalania osobnych modułów w jeden duży moduł, gotowy do użycia w przeglądarce,
-- Babel do tłumaczenia kodu wykorzystującego najnowsze funkcjonalności języka (lub jego rozszerzenia) na kod,
-  który można uruchamiać w przeglądarce
-- rozszerzenie JSX (stosowane w platformie React) umożliwiające kodowanie interfejsu użytkownika za pomocą wyrażeń
-  JavaScript podobnych do znaczników HTML,
-- rozszerzenie `TypeScript` umożliwiające sprawdzanie poprawności typów
-  danych.
+- narzędzie `ESLint` do wyszukiwania błędów i niewłaściwego stylu kodu,
+- narzędzie `Prettier` do formatowania kodu zgodnie z przyjętymi standardami,
+- narzędzie `Jest` do pisania testów jednostkowych,
+- narzędzie `npm` do instalowania i zarządzania bibliotekami kodu,
+- narzędzie `webpack`, `Parcel` i `gulp` do scalania osobnych modułów w jeden duży, gotowy do użycia w przeglądarce,
+- narzędzie `Babel` do tłumaczenia kodu wykorzystującego najnowsze funkcjonalności języka (lub jego rozszerzenia) na
+  kod, który można uruchamiać w przeglądarce
+- rozszerzenie `JSX` (stosowane w platformie `React`) umożliwiające kodowanie interfejsu użytkownika za pomocą wyrażeń
+  `JavaScript` podobnych do znaczników `HTML`,
+- rozszerzenie `TypeScript` umożliwiające sprawdzanie poprawności typów danych.
+- [markdown](https://commonmark.org/help/)
 - [markdown-lint](https://github.com/DavidAnson/markdownlint)
 - [commonmark](https://commonmark.org/)
-- [markdown](https://commonmark.org/help/)
 
 ## System kontroli wersji
 
@@ -32,18 +31,20 @@ Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
 <!-- TODO -->
 
-Oprogramowanie Git dla platform Windows znajdziesz [tutaj](https://git-scm.com/download/win). Wybierz link `64-bit Git for Windows Setup` aby pobrać na swój komputer plik instalatora.  Uruchom plik `.exe`. Po zatwierdzeniu licencji, przejdz do wyboru komponentów. Skorzystaj z domyślnych opcji. Zostaw zaznaczoną opcję Windows Explorer integration (integracja z Eksploratorem Windows), dzięki której wystarczy
+Oprogramowanie Git dla platform Windows znajdziesz [tutaj](https://git-scm.com/download/win). Wybierz
+link `64-bit Git for Windows Setup` aby pobrać na swój komputer plik instalatora. Uruchom plik `.exe`. Po zatwierdzeniu
+licencji przejdź do wyboru komponentów. Skorzystaj z domyślnych opcji. Zostaw zaznaczoną opcję Windows Explorer
+integration (integracja z Eksploratorem Windows), dzięki której wystarczy
 kliknąć folder prawym przyciskiem myszy, aby móc uruchomić Gita w systemowym interfejsie graficznym lub wierszu poleceń
 z poziomu menu kontekstowego. Następnie przejdź wyboru domyślnego edytora, który wybierzesz z rozwijanej listy. W
 kolejnym okienku instalatora dostosujesz zmienną PATH. Trzecia opcja powoduje, że do ścieżek dostępu dodane zostaną
 ścieżki prowadzące do programu git oraz do narzędzi ssh, wc itd. Następnie wybieramy pierwszą opcję, aby nasze
 połączenia ze zdalnym repozytorium były szyfrowane.
 
-Następny krok dotyczy znaków końca linii. Konfiguracja odbywa się na ekranie wyboru (rysunek 2.8). Różne systemy
-operacyjne obsługują pliki tekstowe na różny sposób, zwłaszcza w odniesieniu do znaków końca linii, przy czym zachodzi
-duże prawdopodobieństwo, że członkowie Twojego
-zespołu korzystają z różnych systemów. Git musi zatem konwertować znaki zakończenia linii pomiędzy poszczególnymi
-konwencjami, kiedy przekazuje commity.
+Następny krok dotyczy znaków końca linii. Konfiguracja odbywa się na ekranie wyboru (rysunek 2.8). Każdy system
+operacyjny obsługuje pliki tekstowe w różny sposób, zwłaszcza w odniesieniu do znaków końca linii, przy czym zachodzi
+duże prawdopodobieństwo, że członkowie Twojego zespołu korzystają z różnych systemów. Git musi zatem konwertować znaki
+zakończenia linii pomiędzy poszczególnymi konwencjami, kiedy przekazuje commity.
 
 Ponieważ będziesz korzystać z systemu Windows, wybierz domyślną opcję. Pozostałe dwie mogą doprowadzić do poważnych
 uszkodzeń Twoich commitów, jeśli nie będziesz ostrożnie się obchodzić ze znakami końca linii.
@@ -54,7 +55,7 @@ Następne opcje pozostaw bez zmian.
 
 <!-- Ponieważ Git jest rozproszonym system wersji, istnieje potrzeba łączenia się z innymi repozytoriami zdalnymi, toteż musimy określić swoją tożsamość. -->
 
-Aby dowiedzieć się o wersji zainstalowanego oprogramwania w wierszu poleceń należy wpisać:
+Aby dowiedzieć się o wersji zainstalowanego oprogramowania, w wierszu poleceń należy wpisać:
 
 ```bash
 git --version
@@ -152,8 +153,14 @@ kilka reguł skonfigurowanych w ten sposób:
 ```json
 {
   "rules": {
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"]
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ]
   }
 }
 ```
@@ -200,57 +207,68 @@ instalacji lokalnej lub `npm install -g eslint` w przypadku instalacji globalnej
 
 ## Konfiguracja ESLint
 
-ESLint został zaprojektowany tak, aby był elastyczny i konfigurowalny dla twojego przypadku użycia. Możesz wyłączyć każdą regułę i uruchamiać ją tylko z podstawową walidacją składni lub mieszać i dopasowywać reguły powiązane z regułami niestandardowymi, aby dopasować je do potrzeb projektu. Istnieją dwa podstawowe sposoby konfiguracji ESLint:
+ESLint został zaprojektowany tak, aby był elastyczny i konfigurowalny dla twojego przypadku użycia. Możesz wyłączyć
+każdą regułę i uruchamiać ją tylko z podstawową walidacją składni lub mieszać i dopasowywać reguły powiązane z regułami
+niestandardowymi, aby dopasować je do potrzeb projektu. Istnieją dwa podstawowe sposoby konfiguracji ESLint:
 
 1. Komentarze konfiguracji — użyj komentarzy JavaScript, aby osadzić informacje o konfiguracji bezpośrednio w pliku.
-2. Pliki konfiguracyjne — użyj pliku JavaScript, JSON lub YAML, aby określić informacje konfiguracyjne dla całego katalogu i wszystkich jego podkatalogów. Może to mieć postać pliku [.eslintrc.*](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats) lub pola `eslintConfig` w pliku [package.json](https://docs.npmjs.com/cli/v8/configuring-npm/package-json), które ESLint będzie wyszukiwać i odczytywać automatycznie, lub można określić plik konfiguracyjny w [wierszu](https://eslint.org/docs/latest/user-guide/command-line-interface) poleceń.
+2. Pliki konfiguracyjne — użyj pliku JavaScript, JSON lub YAML, aby określić informacje konfiguracyjne dla całego
+   katalogu i wszystkich jego podkatalogów. Może to mieć postać
+   pliku [.eslintrc.*](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
+   lub pola `eslintConfig` w pliku [package.json](https://docs.npmjs.com/cli/v8/configuring-npm/package-json), które
+   ESLint będzie wyszukiwać i odczytywać automatycznie, lub można określić plik konfiguracyjny
+   w [wierszu](https://eslint.org/docs/latest/user-guide/command-line-interface) poleceń.
 
 Oto kilka opcji, które możesz skonfigurować w ESLint:
-  
-  *  [Środowiska](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments) — w jakich środowiskach ma działać twój skrypt. Każde środowisko zawiera pewien zestaw predefiniowanych zmiennych globalnych.
-  * [Globals](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals) — dodatkowe zmienne globalne, do których skrypt uzyskuje dostęp podczas wykonywania.
-  * [Reguły](https://eslint.org/docs/latest/user-guide/configuring/rules) - które reguły są włączone i na jakim poziomie błędów.
-  * [Wtyczki](https://eslint.org/docs/latest/user-guide/configuring/plugins) - które wtyczki innych firm definiują dodatkowe reguły, środowiska, konfiguracje itp., z których może korzystać ESLint.
 
-  Wszystkie te opcje dają ci precyzyjną kontrolę nad tym, jak ESLint traktuje twój kod.
+* [Środowiska](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments) — w
+  jakich środowiskach ma działać twój skrypt. Każde środowisko zawiera pewien zestaw predefiniowanych zmiennych
+  globalnych.
+* [Globals](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals) — dodatkowe
+  zmienne globalne, do których skrypt uzyskuje dostęp podczas wykonywania.
+* [Reguły](https://eslint.org/docs/latest/user-guide/configuring/rules) - które reguły są włączone i na jakim poziomie
+  błędów.
+* [Wtyczki](https://eslint.org/docs/latest/user-guide/configuring/plugins) - które wtyczki innych firm definiują
+  dodatkowe reguły, środowiska, konfiguracje itp., z których może korzystać ESLint.
 
-  ### Spis treści
+Wszystkie te opcje dają ci precyzyjną kontrolę nad tym, jak ESLint traktuje twój kod.
 
-  [**Pliki konfiguracyjne**](https://eslint.org/docs/latest/user-guide/configuring/configuration-files)
+### Spis treści
 
-  * [Formaty plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
-  * [Korzystanie z plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#using-configuration-files)
-  * [Dodawanie wspólnych ustawień](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#adding-shared-settings)
-  * [Kaskadowanie i hierarchia](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#cascading-and-hierarchy)
-  * [Rozszerzanie plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#extending-configuration-files)
-  * [Konfiguracja oparta na wzorcach glob](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-based-on-glob-patterns)
-  * [Osobiste pliki konfiguracyjne](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#personal-configuration-files-deprecated)
+[**Pliki konfiguracyjne**](https://eslint.org/docs/latest/user-guide/configuring/configuration-files)
 
-  [**Opcje językowe**](https://eslint.org/docs/latest/user-guide/configuring/language-options)
+* [Formaty plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
+* [Korzystanie z plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#using-configuration-files)
+* [Dodawanie wspólnych ustawień](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#adding-shared-settings)
+* [Kaskadowanie i hierarchia](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#cascading-and-hierarchy)
+* [Rozszerzanie plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#extending-configuration-files)
+* [Konfiguracja oparta na wzorcach glob](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-based-on-glob-patterns)
+* [Osobiste pliki konfiguracyjne](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#personal-configuration-files-deprecated)
 
-  * [Określanie środowisk](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments)
-  * [Określanie globalnych](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals)
-  * [Określanie opcji parsera](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options)
+[**Opcje językowe**](https://eslint.org/docs/latest/user-guide/configuring/language-options)
 
-  [**Reguły**]()
+* [Określanie środowisk](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments)
+* [Określanie globalnych](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals)
+* [Określanie opcji parsera](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options)
 
-  * [Konfigurowanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#configuring-rules)
-  * [Wyłączanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#disabling-rules)
+[**Reguły**]()
 
-  [**Wtyczki**](https://eslint.org/docs/latest/user-guide/configuring/plugins)
+* [Konfigurowanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#configuring-rules)
+* [Wyłączanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#disabling-rules)
 
-  * [Określanie parsera](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-parser)
-  * [Określanie procesora](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-processor)
-  * [Konfiguracja wtyczek](https://eslint.org/docs/latest/user-guide/configuring/plugins#configuring-plugins)
+[**Wtyczki**](https://eslint.org/docs/latest/user-guide/configuring/plugins)
 
-  [**Ignorowanie kodu**](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code)
+* [Określanie parsera](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-parser)
+* [Określanie procesora](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-processor)
+* [Konfiguracja wtyczek](https://eslint.org/docs/latest/user-guide/configuring/plugins#configuring-plugins)
 
-  * [ignorePatterns w plikach konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignorepatterns-in-config-files)
-  * [Plik .eslintignore](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#the-eslintignore-file)
-  * [Korzystanie z alternatywnego pliku](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-an-alternate-file)
-  * [Używanie eslintIgnore w package.json](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-eslintignore-in-packagejson)
-  * [Ostrzeżenia dotyczące ignorowanych plików](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignored-file-warnings)
-  
+[**Ignorowanie kodu**](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code)
+
+* [ignorePatterns w plikach konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignorepatterns-in-config-files)
+* [Plik .eslintignore](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#the-eslintignore-file)
+* [Korzystanie z alternatywnego pliku](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-an-alternate-file)
+* [Używanie eslintIgnore w package.json](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-eslintignore-in-packagejson)
+* [Ostrzeżenia dotyczące ignorowanych plików](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignored-file-warnings)
 
 ## Zarządzanie pakietami za pomocą narzędzia npm
 
@@ -671,7 +689,10 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -679,10 +700,18 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
     "quotes": [
       "error",
       "single",
@@ -690,12 +719,16 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
         "allowTemplateLiterals": true
       }
     ],
-    "semi": ["error", "always"],
-    "no-console": ["off"]
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "off"
+    ]
   }
 }
 ```
-
 
 #### **EditorConfig**
 
@@ -762,7 +795,9 @@ W katalogu swojego projektu stwórz nowy plik `.stylelintrc.json` i wklej poniż
 
 ```json
 {
-  "plugins": ["stylelint-scss"],
+  "plugins": [
+    "stylelint-scss"
+  ],
   "rules": {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
@@ -775,14 +810,20 @@ W katalogu swojego projektu stwórz nowy plik `.stylelintrc.json` i wklej poniż
     "max-nesting-depth": [
       3,
       {
-        "ignore": ["pseudo-classes"]
+        "ignore": [
+          "pseudo-classes"
+        ]
       }
     ],
     "rule-empty-line-before": [
       "always",
       {
-        "except": ["first-nested"],
-        "ignore": ["after-comment"]
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
       }
     ],
     "unit-whitelist": null,
@@ -1092,7 +1133,7 @@ internetowej.
 Literały JSX ujmuje się w znaki < i >.
 
 ```jsx
-const line = <hr />;
+const line = <hr/>;
 ```
 
 JSX wymaga transpilacji do zwykłago kodu JavaScript za pomocą narzędzia Babel (lub podobnego). Powyższe wyrażenie
@@ -1105,7 +1146,7 @@ const line = React.createElement('hr', null);
 Element reactowy (jsx-owy) może mieć atrybuty tak jak element HTML:
 
 ```jsx
-const image = <img src="logo" alt="Logo JSX" hidden />;
+const image = <img src="logo" alt="Logo JSX" hidden/>;
 ```
 
 Atrybuty elemntu reactowego są przekształcane we właściwości obiektu, który jest umieszczany w drugim argumencie funkcji
@@ -1125,7 +1166,7 @@ Elementy JSX, tak jak elementy HTML mogą zawierać elementy potomne:
 const sidebar = (
   <div className="sidebar">
     <h1>Title</h1>
-    <hr />
+    <hr/>
     <p>To jest pasek boczny </p>
   </div>
 );
@@ -1138,7 +1179,7 @@ Powyższy kod zostanie skompilowany do takiego:
 
 const sidebar = React.createElement(
   'div',
-  { className: 'sidebar' },
+  {className: 'sidebar'},
   React.createElement('h1', null, 'Title'),
   React.createElement('p', null, 'To jest pasek boczny')
 );
@@ -1160,7 +1201,7 @@ const sidebar = (className, title, content, drawLine = true) => {
   return (
     <div className={className}>
       <h1>{title}</h1>
-      {drawLine && <hr />}
+      {drawLine && <hr/>}
       <p>{content}</p>
     </div>
   );
@@ -1175,7 +1216,7 @@ Zostanie to skompilowane do następującego kodu:
 const sidebar = (className, title, content, drawLine = true) => {
   return React.createElement(
     'div',
-    { className: className },
+    {className: className},
     React.createElement('h1', null, title),
     drawLine && React.createElement('hr', null),
     React.createElement('p', null, content)
@@ -1191,7 +1232,7 @@ W elementach JSX mogą być osadzone dowolne wyrażenia JavaScript, czyli np. ob
 
 const list = (items, cb) => {
   return (
-    <ul style={{ padding: 10, border: 'solid red 4px' }}>
+    <ul style={{padding: 10, border: 'solid red 4px'}}>
       {items.map((item, index) => (
         <li onClick={() => cb(index)} key={index}>
           {item}
@@ -1208,9 +1249,9 @@ const list = (items, cb) => {
 const list = (items, cb) => {
   return React.createElement(
     'ul',
-    { style: { padding: 10, border: 'solid red 4px' } },
+    {style: {padding: 10, border: 'solid red 4px'}},
     items.map((item, index) =>
-      React.createElement('li', { onClick: () => cb(index), key: index }, item)
+      React.createElement('li', {onClick: () => cb(index), key: index}, item)
     )
   );
 };
@@ -1234,7 +1275,7 @@ atrybutów, podobnie jak obiekt umieszczany w drugim argumencie funkcji `createE
 const Sidebar = (props) => (
   <div>
     <h1>{props.title}</h1>
-    {props.drawLine && <hr />}
+    {props.drawLine && <hr/>}
     <p>{props.content}</p>
   </div>
 );
@@ -1243,7 +1284,7 @@ const Sidebar = (props) => (
 Funkcja w takiej postaci reprezentuje komponent React i w wyrażeniu JSX można jej użyć w miejscu nazwy znacznika `HTML`:
 
 ```jsx
-const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska" />;
+const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska"/>;
 ```
 
 Element `<Sidebar/>` zostanie przekształcony w następujący kod:
