@@ -27,56 +27,95 @@ Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
 ## System kontroli wersji
 
-### Instalacja  Gita
+### **Instalacja  Gita**
 
-<!-- TODO -->
+Zakładam, że wszyscy z uczestników projektu pracują na systemie operacyjnym Windows, jeśli tak to powinni odinstalować gita. Następnie usunąć pozostały folder `Git` z lokalizacji `C:\Program Files\Git`.
+Oprogramowanie Git dla platform Windows znajdziecie [tutaj](https://git-scm.com/download/win).
 
-Oprogramowanie Git dla platform Windows znajdziesz [tutaj](https://git-scm.com/download/win). Wybierz
-link `64-bit Git for Windows Setup` aby pobrać na swój komputer plik instalatora. Uruchom plik `.exe`. Po zatwierdzeniu
-licencji przejdź do wyboru komponentów. Skorzystaj z domyślnych opcji. Zostaw zaznaczoną opcję Windows Explorer
-integration (integracja z Eksploratorem Windows), dzięki której wystarczy
-kliknąć folder prawym przyciskiem myszy, aby móc uruchomić Gita w systemowym interfejsie graficznym lub wierszu poleceń
-z poziomu menu kontekstowego. Następnie przejdź wyboru domyślnego edytora, który wybierzesz z rozwijanej listy. W
-kolejnym okienku instalatora dostosujesz zmienną PATH. Trzecia opcja powoduje, że do ścieżek dostępu dodane zostaną
-ścieżki prowadzące do programu git oraz do narzędzi ssh, wc itd. Następnie wybieramy pierwszą opcję, aby nasze
-połączenia ze zdalnym repozytorium były szyfrowane.
+![Ekran pobierania Gita na Windows](../images/ekran-pobierania-gita-na-windows.png)
 
-Następny krok dotyczy znaków końca linii. Konfiguracja odbywa się na ekranie wyboru (rysunek 2.8). Każdy system
-operacyjny obsługuje pliki tekstowe w różny sposób, zwłaszcza w odniesieniu do znaków końca linii, przy czym zachodzi
-duże prawdopodobieństwo, że członkowie Twojego zespołu korzystają z różnych systemów. Git musi zatem konwertować znaki
-zakończenia linii pomiędzy poszczególnymi konwencjami, kiedy przekazuje commity.
+Wybierz link `64-bit Git for Windows Setup` aby pobrać na swój komputer plik instalatora. Uruchom plik `.exe`. Po zatwierdzeniu licencji przejdź do wyboru lokalizacji Gita.
 
-Ponieważ będziesz korzystać z systemu Windows, wybierz domyślną opcję. Pozostałe dwie mogą doprowadzić do poważnych
-uszkodzeń Twoich commitów, jeśli nie będziesz ostrożnie się obchodzić ze znakami końca linii.
+![licencja](../images/licencja.png)
+![destination](../images/destination.png)
+
+Następnie wybierz komponenty gita. Zostaw zaznaczoną opcję `Windows Explorer
+integration` (integracja z Eksploratorem Windows), dzięki której wystarczy
+kliknąć folder prawym przyciskiem myszy, aby móc uruchomić Gita w systemowym interfejsie graficznym lub wierszu poleceń z poziomu menu kontekstowego. Tam zaznacz tylko `Git Bash Here` oraz opcje, które są na rysunku.
+
+![komponenty](../images/components.png)
+
+Następnie przejdź do wyboru domyślnego edytora, który wybierzesz z rozwijanej listy. Wybierz opcję `Use Visual Studio Code as Git's default editor`
+
+W kolejnym okienku instalatora dostosujesz nazwę początkową gałęzi w nowych repozytoriach. Zaznacz jak niżej:
+
+![branch](../images/branch.png)
+
+Dalej dostosujesz zmienną PATH. Zaznacz opcję rekomendowaną przez git:
+
+![path](../images//path.png)
+
+Następnie wybieramy pierwszą opcję, aby nasze
+połączenia ze zdalnym repozytorium były szyfrowane:
+
+![ssh](../images/ssh.png)
+
+Następny krok dotyczy znaków końca linii. Konfiguracja odbywa się na ekranie wyboru:
+
+![line ending](../images/ending-line.png)
+
+Każdy system operacyjny obsługuje pliki tekstowe w różny sposób, zwłaszcza w odniesieniu do znaków końca linii, przy czym zachodzi duże prawdopodobieństwo, że członkowie Twojego zespołu korzystają z różnych systemów. Git musi zatem konwertować znaki zakończenia linii pomiędzy poszczególnymi konwencjami, kiedy przekazuje commity.
+
+Ponieważ będziesz korzystać z systemu Windows, wybierz domyślną opcję. Pozostałe dwie mogą doprowadzić do poważnych uszkodzeń Twoich commitów, jeśli nie będziesz ostrożnie się obchodzić ze znakami końca linii.
 
 Następne opcje pozostaw bez zmian.
 
-### Konfiguracja Gita
+### **Konfiguracja Gita**
 
-<!-- Ponieważ Git jest rozproszonym system wersji, istnieje potrzeba łączenia się z innymi repozytoriami zdalnymi, toteż musimy określić swoją tożsamość. -->
+Ponieważ `Git` jest rozproszonym system wersji, istnieje potrzeba łączenia się z innymi repozytoriami zdalnymi na `GitHub-ie`, toteż musimy określić swoją tożsamość.
 
 Aby dowiedzieć się o wersji zainstalowanego oprogramowania, w wierszu poleceń należy wpisać:
 
-```bash
+```commandline
 git --version
 ```
 
 Wydając polecenie:
 
-```bash
- git config -l
+```commandline
+ git config --global -l
 ```
 
-sprawdzisz, jakie obecnie obowiązują ustawienia. Wszystkie rewizje w repozytorium zawierają informację o autorze. Do
-ustalenia danych autora służą komendy:
+sprawdzisz, jakie obecnie obowiązują ustawienia. Wszystkie rewizje w repozytorium zawierają informację o autorze. Do ustalenia danych autora służą komendy:
 
-```bash
+```commandline
 git config --global user.name "Imie Nazwisko"
 git config --global user.email you@example.com
 ```
 
-W systemie Windows powyższe dane zapisywane są w pliku `.gitconfig` w folderze użytkownika, np. `C:
-\Users\nazwakonta\.gitconfig`. Plik ten powinien być zakodowany w `UTF-8`.
+W systemie Windows powyższe dane zapisywane są w pliku `.gitconfig` w folderze użytkownika, np. `C:\Users\nazwakonta\.gitconfig`. Plik ten powinien być zakodowany w `UTF-8`.
+
+Wydając komendę:
+
+```commandline
+  git --help
+```
+
+otrzymany skróconą pomoc jak posługiwać się gitem:
+
+![git help](../images/git-help.png)
+
+Proszę zwrócić uwagę na sekcję `usage`, w której jest podana syntaktyka komendy gita. Jest to uniwersalny sposób podawania wszelkiej syntaktyki w programowaniu jako takim. W nawiasach kwadratowych (`[]`) podawane są polecenia opcjonalne, a w nawiasach ostrych (`<>`) polecenia obligatoryjne. Jeśli w nawiasach podane są dwa polecenia rozdzielone kreską pionową (`|`) to oznacza, że należy wpisać albo pierwsze polecenie albo drugie.
+
+Natomiast jeśli w wierszu poleceń wpiszemy:
+
+```commandline
+  git help tutorial
+```
+
+to otworzy się nam się w przeglądarce tutorial gita.
+
+![git tutorial](../images/git-tutorial.png)
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
 
