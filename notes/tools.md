@@ -27,6 +27,135 @@ Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
 ## System kontroli wersji
 
+### Wprowadzenie 
+
+Współczesne oprogramowanie komputerowe jest w znacznej większości produkowane przez zespoły składające się z wielu osób. Szczególnym przykładem są rozwiązania `open source`, których kod jest dostępny publicznie. Każdy może do takiego projektu dołączyć i wprowadzać własne modyfikacje.
+
+Głównym zadaniem **systemu kontroli wersji** (ang. *version control systems*) jest ułatwienie przeprowadzania operacji synchronizacji plików projektu przez wszystkich uczestników.
+
+### Git
+
+Git to nowoczesny, rozproszony systemem kontroli wersji. Jego popularność w ciągu ostatnich kilku lat rośnie w ogromnym tempie. Git powstał w 2005 roku dla potrzeb zarządzania kodem źródłowym jądra systemu Linux. Do połowy roku 2012 liczba plików kodu źródłowego jądra Linuksa urosła do 39 000 plików, a liczba programistów, którzy wzięli udział w jego tworzeniu, do blisko 10 000.
+
+### Jak przebiega praca nad projektem stosując Git?
+
+Git śledzi zmiany plików w obrębie konkretnego folderu. Folder, którego zawartość jest kontrolowana przez Git, będziemy nazywali **repozytorium** (ang. **repository**). Repozytoria zawierają specjalny folder `.git`, w którym zapisywane są szczegółowe dane o śledzonych plikach.  Sposób wykonywania operacji plikowych jest nieistotny tak jak operacja zmiany nazwy oraz przeniesienie folderu projektu w inne miejsce.
+
+### Zatwierdzanie zmian
+
+Do wprowadzania zmian w projekcie służy specjalna **operacja zatwierdzania** (ang. commit). Jeśli uznamy, że bieżący stan plików i folderów jest istotny, należy samodzielnie wykonać operację zatwierdzania.
+
+Wykonanie operacji zatwierdzania powoduje zapisanie rewizji (ang. *commit, revision*). Każdy `commit` zawiera szczegółowe dane składające się m.in. z:
+
+  * identyfikatora `commita`
+  * danych osoby wykonującej `commita`
+  * data i godzina wykonania `commita`
+  * identyfikatorów poprzednich `commitów`
+  * informacji o zmodyfikowanych plikach i folderach
+
+ Dla operacji zatwierdzania liczba wprowadzonych zmian jest nieistotna.  Git nie pozwoli na utworzenie `commita`, gdy żaden plik ani zawartość żadnego folderu nie zostały zmodyfikowane.
+
+ Każdy `commit` stanowi zapis stanu projektu.
+
+ Oprogramowanie Git pozwala na przywrócenie stanu projektu odpowiadającego dowolnej rewizji. Możemy więc powiedzieć, że Git dodaje do systemu plików wymiar czasowy. Stan plików w dowolnej chwili rejestrujemy, wykonując operację zatwierdzania.
+
+### Praca grupowa
+
+Praca grupowa nad projektem polega na udostępnianiu własnych `commitów` innym uczestnikom projektu. Na serwerze umieszczamy repozytorium, które jest współdzielone. Każdy uczestnik projektu tworzy lokalną kopię repozytorium. We własnym lokalnym repozytorium możemy zatwierdzać zmiany (tj. tworzyć rewizje) bez żadnych ograniczeń. Po utworzeniu nowych rewizji (`commitów`) wykonane zmiany przesyłamy na serwer.
+
+Po zatwierdzeniu przez administratora nasze rewizje stają się dostępne w głównym repozytorium na serwerze. Teraz każdy uczestnik projektu może pobrać wykonane przez nas zmiany.
+
+`Git` umożliwia dokładne sprawdzenie różnic pomiędzy dwoma dowolnymi rewizjami. W ten sposób osoba zatwierdzająca rewizje na serwerze ma możliwość dokładnej analizy zmian.
+
+W takim modelu pracy wykonujemy następujące operacje:
+
+  * pobranie aktualnego stanu repozytorium z serwera do własnego lokalnego repozytorium (polecenie `git    pull`),
+  * przesłanie własnego lokalnego repozytorium na serwer (polecenie `git push`),
+  * zatwierdzenie wykonanych zmian w lokalnym repozytorium (polecenie `git commit`).
+
+ Jeśli przesłanie danych z serwera lub na serwer nie jest możliwe (np. inny użytkownik zmodyfikował dokładnie ten sam fragment pewnego pliku, wprowadzając inne zmiany), operacja nie zostanie wówczas przeprowadzona, o czym zostaniemy dokładnie poinformowani. W takiej sytuacji musimy usunąć ewentualne konflikty oraz ponownie wykonać operacje `pull` i `push`.
+
+ ### Hosting projektów Git
+
+ Bardzo duży wpływ na popularyzację `Gita` ma serwis http://github.com. Jest to obecnie najpopularniejsze rozwiązanie  hostingowe projektów `open source`. `GitHub` został wykupiony przez `Microsoft`
+
+ `Github` umożliwia darmowy hosting projektów `open source` w oparciu o system `Git`, zapewnia kontrolę nad wprowadzanymi rewizjami oraz dostęp do zintegrowanego systemu śledzenia błędów. 
+
+ Na GitHub można zakladać publiczne jaki i prywate repozytoria.
+
+ ### Dokumentacja
+
+Podstawowym źródłem informacji o oprogramowaniu `Git` jest dokumentacja zawarta w folderze:
+
+```
+  C:\Program Files\Git\doc\git\html
+```
+
+  Po wydaniu w wierszu poleceń komendy:
+
+```
+  git help git
+```
+
+ujrzysz opis zawarty w pliku:
+
+```
+  C:\Program Files\Git\doc\git\html\git.html
+```
+
+Kolejnymi dokumentami, które warto przeczytać, są:
+
+```
+  doc\git\html\gittutorial.html
+  doc\git\html\everyday.html
+  doc\git\html\user-manual.html
+  doc\git\html\gitglossary.html
+```
+
+  Opis poszczególnych komend Gita uzyskasz, wydając komendy:
+
+```
+  git add --help
+  git branch --help
+  git clone --help
+  git config --help
+```
+
+  lub:
+
+```
+  git help add
+  git help branch
+  git help clone
+  git help config
+```
+
+itd.
+
+Dokumentacja Gita jest także dostępna w Internecie na stronie:
+
+  http://www.kernel.org/pub/software/scm/git/docs/
+
+
+> Dokumentacja Gita dzieli dostępne polecenia na:
+>  * polecenia wysokopoziomowe (ang. *porcelain*),
+>  * polecenia niskopoziomowe (ang. *plumbing*).
+>
+> Tu omawiane są  głównie polecenia wysokopoziomowe.
+
+Dodatkowym źródłem obszernych informacji jest witryna internetowa:
+
+  http://git-scm.com
+
+książka Scotta Chacona pt. Pro Git:
+
+  http://git-scm.com/book/pl
+
+oraz dokumentacja serwisu github.com
+
+  https://help.github.com/
+
+
 ### **Instalacja  Gita**
 
 Zakładam, że wszyscy z uczestników projektu pracują na systemie operacyjnym Windows, jeśli tak to powinni odinstalować gita. Następnie usunąć pozostały folder `Git` z lokalizacji `C:\Program Files\Git`.
@@ -116,6 +245,40 @@ Natomiast jeśli w wierszu poleceń wpiszemy:
 to otworzy się nam się w przeglądarce tutorial gita.
 
 ![git tutorial](../images/git-tutorial.png)
+
+### Tworzenie repozytoriów
+
+**Repozytorium** (repo) to projekt w systemie `Git`. Nowe repo możemy tworzyć:
+  
+  * inicjalizując nowy projekt
+  * klonując istniejące repozytorium
+
+#### Inicjalizacja nowego repozytorium
+
+Nowe repo inicjalizujemy komendą:
+
+```commandline
+  git init
+```
+
+Wydajemy ją w pustym folderze lub  zawierającym pliki projektu, nie powoduje ona utraty danych. Jeśli zostanie wydana tam gdzie istnieje folder `.git` to projekt nie zostanie uszkodzony. Komenda ta powoduje utworzenie folderu `.git`. Jeśli są tam pliki i foldery to repozytorium i tak będzie puste.
+
+#### Klonowaanie repozytoriów
+
+Przez klonowanie utworzymy repozytorium wydając komendę:
+
+```commandline
+  git clone [adres klonowanego repo]
+```
+
+W ten sposób zostanie na dysku lokalnym utworzona dokładną kopia oryginalnego repozytorium. Oba z nich zawierają kompletną historię projektu.
+
+```commandline
+  git clone https://github.com/marcocollander/simple-game.git
+```
+
+#### Badanie 
+
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
 
