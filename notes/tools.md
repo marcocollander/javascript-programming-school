@@ -27,11 +27,11 @@ Do drugiej kategorii można zaliczyć takie narzędzia jak:
 
 ## System kontroli wersji
 
-### Wprowadzenie 
+### Wprowadzenie
 
 Współczesne oprogramowanie komputerowe jest w znacznej większości produkowane przez zespoły składające się z wielu osób. Szczególnym przykładem są rozwiązania `open source`, których kod jest dostępny publicznie. Każdy może do takiego projektu dołączyć i wprowadzać własne modyfikacje.
 
-Głównym zadaniem **systemu kontroli wersji** (ang. *version control systems*) jest ułatwienie przeprowadzania operacji synchronizacji plików projektu przez wszystkich uczestników.
+Głównym zadaniem **systemu kontroli wersji** (ang. _version control systems_) jest ułatwienie przeprowadzania operacji synchronizacji plików projektu przez wszystkich uczestników.
 
 ### Git
 
@@ -39,25 +39,25 @@ Git to nowoczesny, rozproszony systemem kontroli wersji. Jego popularność w ci
 
 ### Jak przebiega praca nad projektem stosując Git?
 
-Git śledzi zmiany plików w obrębie konkretnego folderu. Folder, którego zawartość jest kontrolowana przez Git, będziemy nazywali **repozytorium** (ang. **repository**). Repozytoria zawierają specjalny folder `.git`, w którym zapisywane są szczegółowe dane o śledzonych plikach.  Sposób wykonywania operacji plikowych jest nieistotny tak jak operacja zmiany nazwy oraz przeniesienie folderu projektu w inne miejsce.
+Git śledzi zmiany plików w obrębie konkretnego folderu. Folder, którego zawartość jest kontrolowana przez Git, będziemy nazywali **repozytorium** (ang. **repository**). Repozytoria zawierają specjalny folder `.git`, w którym zapisywane są szczegółowe dane o śledzonych plikach. Sposób wykonywania operacji plikowych jest nieistotny tak jak operacja zmiany nazwy oraz przeniesienie folderu projektu w inne miejsce.
 
 ### Zatwierdzanie zmian
 
 Do wprowadzania zmian w projekcie służy specjalna **operacja zatwierdzania** (ang. commit). Jeśli uznamy, że bieżący stan plików i folderów jest istotny, należy samodzielnie wykonać operację zatwierdzania.
 
-Wykonanie operacji zatwierdzania powoduje zapisanie rewizji (ang. *commit, revision*). Każdy `commit` zawiera szczegółowe dane składające się m.in. z:
+Wykonanie operacji zatwierdzania powoduje zapisanie rewizji (ang. _commit, revision_). Każdy `commit` zawiera szczegółowe dane składające się m.in. z:
 
-  * identyfikatora `commita`
-  * danych osoby wykonującej `commita`
-  * data i godzina wykonania `commita`
-  * identyfikatorów poprzednich `commitów`
-  * informacji o zmodyfikowanych plikach i folderach
+- identyfikatora `commita`
+- danych osoby wykonującej `commita`
+- data i godzina wykonania `commita`
+- identyfikatorów poprzednich `commitów`
+- informacji o zmodyfikowanych plikach i folderach
 
- Dla operacji zatwierdzania liczba wprowadzonych zmian jest nieistotna.  Git nie pozwoli na utworzenie `commita`, gdy żaden plik ani zawartość żadnego folderu nie zostały zmodyfikowane.
+Dla operacji zatwierdzania liczba wprowadzonych zmian jest nieistotna. Git nie pozwoli na utworzenie `commita`, gdy żaden plik ani zawartość żadnego folderu nie zostały zmodyfikowane.
 
- Każdy `commit` stanowi zapis stanu projektu.
+Każdy `commit` stanowi zapis stanu projektu.
 
- Oprogramowanie Git pozwala na przywrócenie stanu projektu odpowiadającego dowolnej rewizji. Możemy więc powiedzieć, że Git dodaje do systemu plików wymiar czasowy. Stan plików w dowolnej chwili rejestrujemy, wykonując operację zatwierdzania.
+Oprogramowanie Git pozwala na przywrócenie stanu projektu odpowiadającego dowolnej rewizji. Możemy więc powiedzieć, że Git dodaje do systemu plików wymiar czasowy. Stan plików w dowolnej chwili rejestrujemy, wykonując operację zatwierdzania.
 
 ### Praca grupowa
 
@@ -69,50 +69,46 @@ Po zatwierdzeniu przez administratora nasze rewizje stają się dostępne w gł�
 
 W takim modelu pracy wykonujemy następujące operacje:
 
-  * pobranie aktualnego stanu repozytorium z serwera do własnego lokalnego repozytorium (polecenie `git    pull`),
-  * przesłanie własnego lokalnego repozytorium na serwer (polecenie `git push`),
-  * zatwierdzenie wykonanych zmian w lokalnym repozytorium (polecenie `git commit`).
+- pobranie aktualnego stanu repozytorium z serwera do własnego lokalnego repozytorium (polecenie `git pull`),
+- przesłanie własnego lokalnego repozytorium na serwer (polecenie `git push`),
+- zatwierdzenie wykonanych zmian w lokalnym repozytorium (polecenie `git commit`).
 
- Jeśli przesłanie danych z serwera lub na serwer nie jest możliwe (np. inny użytkownik zmodyfikował dokładnie ten sam fragment pewnego pliku, wprowadzając inne zmiany), operacja nie zostanie wówczas przeprowadzona, o czym zostaniemy dokładnie poinformowani. W takiej sytuacji musimy usunąć ewentualne konflikty oraz ponownie wykonać operacje `pull` i `push`.
+Jeśli przesłanie danych z serwera lub na serwer nie jest możliwe (np. inny użytkownik zmodyfikował dokładnie ten sam fragment pewnego pliku, wprowadzając inne zmiany), operacja nie zostanie wówczas przeprowadzona, o czym zostaniemy dokładnie poinformowani. W takiej sytuacji musimy usunąć ewentualne konflikty oraz ponownie wykonać operacje `pull` i `push`.
 
- ### Hosting projektów Git
+### Hosting projektów Git
 
- Bardzo duży wpływ na popularyzację `Gita` ma serwis http://github.com. Jest to obecnie najpopularniejsze rozwiązanie  hostingowe projektów `open source`. `GitHub` został wykupiony przez `Microsoft`
+Bardzo duży wpływ na popularyzację `Gita` ma serwis <http://github.com>. Jest to obecnie najpopularniejsze rozwiązanie hostingowe projektów `open source`. `GitHub` został wykupiony przez `Microsoft`
 
- `Github` umożliwia darmowy hosting projektów `open source` w oparciu o system `Git`, zapewnia kontrolę nad wprowadzanymi rewizjami oraz dostęp do zintegrowanego systemu śledzenia błędów. 
+`Github` umożliwia darmowy hosting projektów `open source` w oparciu o system `Git`, zapewnia kontrolę nad wprowadzanymi rewizjami oraz dostęp do zintegrowanego systemu śledzenia błędów.
 
- Na GitHub można zakladać publiczne jaki i prywate repozytoria.
+Na GitHub można zakladać publiczne jaki i prywate repozytoria.
 
- ### Dokumentacja
+### Dokumentacja
 
 Podstawowym źródłem informacji o oprogramowaniu `Git` jest dokumentacja zawarta w folderze:
 
-```
-  C:\Program Files\Git\doc\git\html
-```
+  `C:\Program Files\Git\doc\git\html`
 
-  Po wydaniu w wierszu poleceń komendy:
+Po wydaniu w wierszu poleceń komendy:
 
-```
+```commandline
   git help git
 ```
 
 ujrzysz opis zawarty w pliku:
 
-```
-  C:\Program Files\Git\doc\git\html\git.html
-```
+  `C:\Program Files\Git\doc\git\html\git.html`
 
 Kolejnymi dokumentami, które warto przeczytać, są:
 
-```
+  ```
   doc\git\html\gittutorial.html
   doc\git\html\everyday.html
   doc\git\html\user-manual.html
   doc\git\html\gitglossary.html
-```
+  ```
 
-  Opis poszczególnych komend Gita uzyskasz, wydając komendy:
+Opis poszczególnych komend Gita uzyskasz, wydając komendy:
 
 ```
   git add --help
@@ -121,7 +117,7 @@ Kolejnymi dokumentami, które warto przeczytać, są:
   git config --help
 ```
 
-  lub:
+lub:
 
 ```
   git help add
@@ -134,29 +130,28 @@ itd.
 
 Dokumentacja Gita jest także dostępna w Internecie na stronie:
 
-  http://www.kernel.org/pub/software/scm/git/docs/
-
+<http://www.kernel.org/pub/software/scm/git/docs/>
 
 > Dokumentacja Gita dzieli dostępne polecenia na:
->  * polecenia wysokopoziomowe (ang. *porcelain*),
->  * polecenia niskopoziomowe (ang. *plumbing*).
 >
-> Tu omawiane są  głównie polecenia wysokopoziomowe.
+> - polecenia wysokopoziomowe (ang. _porcelain_),
+> - polecenia niskopoziomowe (ang. _plumbing_).
+>
+> Tu omawiane są głównie polecenia wysokopoziomowe.
 
 Dodatkowym źródłem obszernych informacji jest witryna internetowa:
 
-  http://git-scm.com
+<http://git-scm.com>
 
 książka Scotta Chacona pt. Pro Git:
 
-  http://git-scm.com/book/pl
+<http://git-scm.com/book/pl>
 
 oraz dokumentacja serwisu github.com
 
-  https://help.github.com/
+<https://help.github.com/>
 
-
-### **Instalacja  Gita**
+### **Instalacja Gita**
 
 Zakładam, że wszyscy z uczestników projektu pracują na systemie operacyjnym Windows, jeśli tak to powinni odinstalować gita. Następnie usunąć pozostały folder `Git` z lokalizacji `C:\Program Files\Git`.
 Oprogramowanie Git dla platform Windows znajdziecie [tutaj](https://git-scm.com/download/win).
@@ -168,8 +163,7 @@ Wybierz link `64-bit Git for Windows Setup` aby pobrać na swój komputer plik i
 ![licencja](../images/licencja.png)
 ![destination](../images/destination.png)
 
-Następnie wybierz komponenty gita. Zostaw zaznaczoną opcję `Windows Explorer
-integration` (integracja z Eksploratorem Windows), dzięki której wystarczy
+Następnie wybierz komponenty gita. Zostaw zaznaczoną opcję `Windows Explorer integration` (integracja z Eksploratorem Windows), dzięki której wystarczy
 kliknąć folder prawym przyciskiem myszy, aby móc uruchomić Gita w systemowym interfejsie graficznym lub wierszu poleceń z poziomu menu kontekstowego. Tam zaznacz tylko `Git Bash Here` oraz opcje, które są na rysunku.
 
 ![komponenty](../images/components.png)
@@ -249,9 +243,9 @@ to otworzy się nam się w przeglądarce tutorial gita.
 ### Tworzenie repozytoriów
 
 **Repozytorium** (repo) to projekt w systemie `Git`. Nowe repo możemy tworzyć:
-  
-  * inicjalizując nowy projekt
-  * klonując istniejące repozytorium
+
+- inicjalizując nowy projekt
+- klonując istniejące repozytorium
 
 #### Inicjalizacja nowego repozytorium
 
@@ -261,7 +255,7 @@ Nowe repo inicjalizujemy komendą:
   git init
 ```
 
-Wydajemy ją w pustym folderze lub  zawierającym pliki projektu, nie powoduje ona utraty danych. Jeśli zostanie wydana tam gdzie istnieje folder `.git` to projekt nie zostanie uszkodzony. Komenda ta powoduje utworzenie folderu `.git`. Jeśli są tam pliki i foldery to repozytorium i tak będzie puste.
+Wydajemy ją w pustym folderze lub zawierającym pliki projektu, nie powoduje ona utraty danych. Jeśli zostanie wydana tam gdzie istnieje folder `.git` to projekt nie zostanie uszkodzony. Komenda ta powoduje utworzenie folderu `.git`. Jeśli są tam pliki i foldery to repozytorium i tak będzie puste.
 
 #### Klonowaanie repozytoriów
 
@@ -277,7 +271,39 @@ W ten sposób zostanie na dysku lokalnym utworzona dokładną kopia oryginalnego
   git clone https://github.com/marcocollander/simple-game.git
 ```
 
-#### Badanie 
+#### Badanie historii projektu
+
+Do sprawdzania zmian wprowadzonych w repozytorium służy komenda:
+
+```commandline
+  git log
+```
+
+Wydana bez parametrów drukuje informacje o ostatnich modyfikacjach w  projekcie. Do przewijania wyników komendy git log służą spacja oraz Q.
+
+Polecenie:
+
+```commandline
+  git log --pretty=oneline
+```
+
+wydrukuje listę ostatnich rewizji w formacie jednowierszowym.
+
+A polecenie:
+
+```commandline
+  git log --abbrev-commit --abbrev=4 --pretty=oneline
+```
+
+skróci drukowanie skrótów SHA-1.
+
+Natomiast komenda:
+
+```commandline
+  git log -5 --author=janek
+```
+
+wydrukuje `commity` wykonane przez autora janka.
 
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
@@ -287,7 +313,7 @@ wspólnym kodem przestrzegania ustalonych konwencji i stylów. Obejmuje to m.in.
 ujmowanie ciągów znaków w apostrofy lub cudzysłowy oraz wstawianie spacji pomiędzy słowami kluczowymi a nawiasami
 otwierającymi.
 
-Słowo **lint** (ang. *kłaczek*) oznacza fragment kodu, który z technicznego punktu widzenia jest poprawny, ale
+Słowo **lint** (ang. _kłaczek_) oznacza fragment kodu, który z technicznego punktu widzenia jest poprawny, ale
 nieestetyczny, nieoptymalny i zawiera potencjalne błędy. **Linter** jest narzędziem wykrywającym tego rodzaju
 mankamenty, a **lintowanie**oznacza czynność polegającą na wielokrotnym uruchamianiu lintera i poprawianiu błędów do
 momentu, aż przestaną się pojawiać komunikaty ostrzegawcze.
@@ -355,14 +381,8 @@ kilka reguł skonfigurowanych w ten sposób:
 ```json
 {
   "rules": {
-    "semi": [
-      "error",
-      "always"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ]
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
   }
 }
 ```
@@ -416,21 +436,21 @@ niestandardowymi, aby dopasować je do potrzeb projektu. Istnieją dwa podstawow
 1. Komentarze konfiguracji — użyj komentarzy JavaScript, aby osadzić informacje o konfiguracji bezpośrednio w pliku.
 2. Pliki konfiguracyjne — użyj pliku JavaScript, JSON lub YAML, aby określić informacje konfiguracyjne dla całego
    katalogu i wszystkich jego podkatalogów. Może to mieć postać
-   pliku [.eslintrc.*](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
+   pliku [.eslintrc.\*](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
    lub pola `eslintConfig` w pliku [package.json](https://docs.npmjs.com/cli/v8/configuring-npm/package-json), które
    ESLint będzie wyszukiwać i odczytywać automatycznie, lub można określić plik konfiguracyjny
    w [wierszu](https://eslint.org/docs/latest/user-guide/command-line-interface) poleceń.
 
 Oto kilka opcji, które możesz skonfigurować w ESLint:
 
-* [Środowiska](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments) — w
+- [Środowiska](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments) — w
   jakich środowiskach ma działać twój skrypt. Każde środowisko zawiera pewien zestaw predefiniowanych zmiennych
   globalnych.
-* [Globals](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals) — dodatkowe
+- [Globals](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals) — dodatkowe
   zmienne globalne, do których skrypt uzyskuje dostęp podczas wykonywania.
-* [Reguły](https://eslint.org/docs/latest/user-guide/configuring/rules) - które reguły są włączone i na jakim poziomie
+- [Reguły](https://eslint.org/docs/latest/user-guide/configuring/rules) - które reguły są włączone i na jakim poziomie
   błędów.
-* [Wtyczki](https://eslint.org/docs/latest/user-guide/configuring/plugins) - które wtyczki innych firm definiują
+- [Wtyczki](https://eslint.org/docs/latest/user-guide/configuring/plugins) - które wtyczki innych firm definiują
   dodatkowe reguły, środowiska, konfiguracje itp., z których może korzystać ESLint.
 
 Wszystkie te opcje dają ci precyzyjną kontrolę nad tym, jak ESLint traktuje twój kod.
@@ -439,38 +459,38 @@ Wszystkie te opcje dają ci precyzyjną kontrolę nad tym, jak ESLint traktuje t
 
 [**Pliki konfiguracyjne**](https://eslint.org/docs/latest/user-guide/configuring/configuration-files)
 
-* [Formaty plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
-* [Korzystanie z plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#using-configuration-files)
-* [Dodawanie wspólnych ustawień](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#adding-shared-settings)
-* [Kaskadowanie i hierarchia](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#cascading-and-hierarchy)
-* [Rozszerzanie plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#extending-configuration-files)
-* [Konfiguracja oparta na wzorcach glob](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-based-on-glob-patterns)
-* [Osobiste pliki konfiguracyjne](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#personal-configuration-files-deprecated)
+- [Formaty plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-file-formats)
+- [Korzystanie z plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#using-configuration-files)
+- [Dodawanie wspólnych ustawień](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#adding-shared-settings)
+- [Kaskadowanie i hierarchia](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#cascading-and-hierarchy)
+- [Rozszerzanie plików konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#extending-configuration-files)
+- [Konfiguracja oparta na wzorcach glob](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#configuration-based-on-glob-patterns)
+- [Osobiste pliki konfiguracyjne](https://eslint.org/docs/latest/user-guide/configuring/configuration-files#personal-configuration-files-deprecated)
 
 [**Opcje językowe**](https://eslint.org/docs/latest/user-guide/configuring/language-options)
 
-* [Określanie środowisk](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments)
-* [Określanie globalnych](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals)
-* [Określanie opcji parsera](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options)
+- [Określanie środowisk](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-environments)
+- [Określanie globalnych](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals)
+- [Określanie opcji parsera](https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-parser-options)
 
 [**Reguły**]()
 
-* [Konfigurowanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#configuring-rules)
-* [Wyłączanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#disabling-rules)
+- [Konfigurowanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#configuring-rules)
+- [Wyłączanie reguł](https://eslint.org/docs/latest/user-guide/configuring/rules#disabling-rules)
 
 [**Wtyczki**](https://eslint.org/docs/latest/user-guide/configuring/plugins)
 
-* [Określanie parsera](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-parser)
-* [Określanie procesora](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-processor)
-* [Konfiguracja wtyczek](https://eslint.org/docs/latest/user-guide/configuring/plugins#configuring-plugins)
+- [Określanie parsera](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-parser)
+- [Określanie procesora](https://eslint.org/docs/latest/user-guide/configuring/plugins#specifying-processor)
+- [Konfiguracja wtyczek](https://eslint.org/docs/latest/user-guide/configuring/plugins#configuring-plugins)
 
 [**Ignorowanie kodu**](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code)
 
-* [ignorePatterns w plikach konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignorepatterns-in-config-files)
-* [Plik .eslintignore](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#the-eslintignore-file)
-* [Korzystanie z alternatywnego pliku](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-an-alternate-file)
-* [Używanie eslintIgnore w package.json](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-eslintignore-in-packagejson)
-* [Ostrzeżenia dotyczące ignorowanych plików](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignored-file-warnings)
+- [ignorePatterns w plikach konfiguracyjnych](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignorepatterns-in-config-files)
+- [Plik .eslintignore](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#the-eslintignore-file)
+- [Korzystanie z alternatywnego pliku](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-an-alternate-file)
+- [Używanie eslintIgnore w package.json](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#using-eslintignore-in-packagejson)
+- [Ostrzeżenia dotyczące ignorowanych plików](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code#ignored-file-warnings)
 
 ## Zarządzanie pakietami za pomocą narzędzia npm
 
@@ -891,10 +911,7 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
     "es2021": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -902,18 +919,10 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
     "quotes": [
       "error",
       "single",
@@ -921,13 +930,8 @@ Po udzieleniu odpowiedzi na pytania konfiguratora zostanie automatycznie utworzo
         "allowTemplateLiterals": true
       }
     ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "no-console": [
-      "off"
-    ]
+    "semi": ["error", "always"],
+    "no-console": ["off"]
   }
 }
 ```
@@ -997,9 +1001,7 @@ W katalogu swojego projektu stwórz nowy plik `.stylelintrc.json` i wklej poniż
 
 ```json
 {
-  "plugins": [
-    "stylelint-scss"
-  ],
+  "plugins": ["stylelint-scss"],
   "rules": {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
@@ -1012,20 +1014,14 @@ W katalogu swojego projektu stwórz nowy plik `.stylelintrc.json` i wklej poniż
     "max-nesting-depth": [
       3,
       {
-        "ignore": [
-          "pseudo-classes"
-        ]
+        "ignore": ["pseudo-classes"]
       }
     ],
     "rule-empty-line-before": [
       "always",
       {
-        "except": [
-          "first-nested"
-        ],
-        "ignore": [
-          "after-comment"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
       }
     ],
     "unit-whitelist": null,
@@ -1335,7 +1331,7 @@ internetowej.
 Literały JSX ujmuje się w znaki < i >.
 
 ```jsx
-const line = <hr/>;
+const line = <hr />;
 ```
 
 JSX wymaga transpilacji do zwykłago kodu JavaScript za pomocą narzędzia Babel (lub podobnego). Powyższe wyrażenie
@@ -1348,7 +1344,7 @@ const line = React.createElement('hr', null);
 Element reactowy (jsx-owy) może mieć atrybuty tak jak element HTML:
 
 ```jsx
-const image = <img src="logo" alt="Logo JSX" hidden/>;
+const image = <img src="logo" alt="Logo JSX" hidden />;
 ```
 
 Atrybuty elemntu reactowego są przekształcane we właściwości obiektu, który jest umieszczany w drugim argumencie funkcji
@@ -1368,7 +1364,7 @@ Elementy JSX, tak jak elementy HTML mogą zawierać elementy potomne:
 const sidebar = (
   <div className="sidebar">
     <h1>Title</h1>
-    <hr/>
+    <hr />
     <p>To jest pasek boczny </p>
   </div>
 );
@@ -1381,7 +1377,7 @@ Powyższy kod zostanie skompilowany do takiego:
 
 const sidebar = React.createElement(
   'div',
-  {className: 'sidebar'},
+  { className: 'sidebar' },
   React.createElement('h1', null, 'Title'),
   React.createElement('p', null, 'To jest pasek boczny')
 );
@@ -1403,7 +1399,7 @@ const sidebar = (className, title, content, drawLine = true) => {
   return (
     <div className={className}>
       <h1>{title}</h1>
-      {drawLine && <hr/>}
+      {drawLine && <hr />}
       <p>{content}</p>
     </div>
   );
@@ -1418,7 +1414,7 @@ Zostanie to skompilowane do następującego kodu:
 const sidebar = (className, title, content, drawLine = true) => {
   return React.createElement(
     'div',
-    {className: className},
+    { className: className },
     React.createElement('h1', null, title),
     drawLine && React.createElement('hr', null),
     React.createElement('p', null, content)
@@ -1434,7 +1430,7 @@ W elementach JSX mogą być osadzone dowolne wyrażenia JavaScript, czyli np. ob
 
 const list = (items, cb) => {
   return (
-    <ul style={{padding: 10, border: 'solid red 4px'}}>
+    <ul style={{ padding: 10, border: 'solid red 4px' }}>
       {items.map((item, index) => (
         <li onClick={() => cb(index)} key={index}>
           {item}
@@ -1451,9 +1447,9 @@ const list = (items, cb) => {
 const list = (items, cb) => {
   return React.createElement(
     'ul',
-    {style: {padding: 10, border: 'solid red 4px'}},
+    { style: { padding: 10, border: 'solid red 4px' } },
     items.map((item, index) =>
-      React.createElement('li', {onClick: () => cb(index), key: index}, item)
+      React.createElement('li', { onClick: () => cb(index), key: index }, item)
     )
   );
 };
@@ -1477,7 +1473,7 @@ atrybutów, podobnie jak obiekt umieszczany w drugim argumencie funkcji `createE
 const Sidebar = (props) => (
   <div>
     <h1>{props.title}</h1>
-    {props.drawLine && <hr/>}
+    {props.drawLine && <hr />}
     <p>{props.content}</p>
   </div>
 );
@@ -1486,7 +1482,7 @@ const Sidebar = (props) => (
 Funkcja w takiej postaci reprezentuje komponent React i w wyrażeniu JSX można jej użyć w miejscu nazwy znacznika `HTML`:
 
 ```jsx
-const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska"/>;
+const sidebar = <Sidebar title="Tytuł paska" content="Zawartość paska" />;
 ```
 
 Element `<Sidebar/>` zostanie przekształcony w następujący kod:
@@ -1679,6 +1675,7 @@ dowiedzieć się więcej o pisaniu i samodzielnym publikowaniu książek za pomo
 
 - Markdown Guide, <https://www.markdownguide.org/>
 - Tutorial Markdown, <https://commonmark.org/help/tutorial/index.html>
+
 - # Tables Generator, <https://www.tablesgenerator.commarkdown_tables>
 
 - Markdown Guide, <https://www.markdownguide.org/>
