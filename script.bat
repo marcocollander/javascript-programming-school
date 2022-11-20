@@ -1,0 +1,1 @@
+path C:\Users\zrraubuc\Documents\programming\javascript-exercises\node;C:\Users\zrraubuc\Documents\programming\javascript-programming-school\node_modules\.bin
