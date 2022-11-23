@@ -96,6 +96,61 @@ body {
 }
 .menu__link:hover {
   color: red;
+}
+
+.calculator {
+  margin: 50px auto;
+  width: 200px;
+  height: 300px;
+  background-color: #e0e3ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.row {
+  margin: 0 5px;
+}
+
+.btn {
+  border: 0px;
+  margin: 2px;
+  color: #ffffff;
+  font-size: 16px;
+}
+.btn--small {
+  width: 40px;
+  height: 40px;
+  border-radius: 40%;
+}
+.btn--small:hover {
+  background-color: #81c8e7;
+}
+.btn--long {
+  width: 87px;
+  height: 40px;
+  border-radius: 10px;
+}
+.btn--action {
+  background-color: #c5a5db;
+}
+.btn--action:hover {
+  background-color: #81e7b6;
+  border: 0px;
+}
+.btn--digital {
+  background-color: #727a7e;
+}
+.btn--digital:hover {
+  background-color: #8cbfd9;
+  border: 0px;
+}
+
+.display {
+  font-size: 16px;
+  height: 30px;
+  width: 180px;
+  margin: 20px 5px;
+  border-radius: 10px;
 }/*# sourceMappingURL=main.css.map */
-
-

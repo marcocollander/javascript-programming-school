@@ -1,0 +1,69 @@
+@use 'var';
+
+@mixin bcg($color) {
+  background-color: $color;
+}
+
+.calculator {
+  margin: 50px auto;
+  width: 200px;
+  height: 300px;
+  background-color: #e0e3ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.row {
+  margin: 0 5px;
+}
+
+.btn {
+  border: 0px;
+  margin: 2px;
+  color: #ffffff;
+  font-size: 16px;
+
+  &--small {
+    width: 40px;
+    height: 40px;
+    border-radius: 40%;
+
+    &:hover {
+      background-color: #81c8e7;
+    }
+  }
+
+  &--long {
+    width: 87px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  &--action {
+    @include bcg(var.$fiolet-color);
+
+    &:hover {
+      background-color: #81e7b6;
+      border: 0px;
+    }
+  }
+
+  &--digital {
+    @include bcg(var.$grey-color);
+
+    &:hover {
+      background-color: #8cbfd9;
+      border: 0px;
+    }
+  }
+}
+
+.display {
+  font-size: 16px;
+  height: 30px;
+  width: 180px;
+  margin: 20px 5px;
+  border-radius: 10px;
+}
