@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabele w HTML</title>
+  <script src="https://kit.fontawesome.com/a6ae4ba80e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -21,7 +23,7 @@
         <th class="table__header-ceil">Action</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table__body">
       <tr class="table__row">
         <td class="table__division"><input type="text"></td>
         <td class="table__division"><input type="text"></td>
@@ -32,24 +34,36 @@
         <td class="table__division">Emily</td>
         <td class="table__division">Williams</td>
         <td class="table__division">Birmingham</td>
-        <i></i>
-        <i></i>
+        <td class="table__division">
+          <i class="fa-solid fa-pencil"></i>
+          <i class="fa-sharp fa-solid fa-bags-shopping"></i>
+        </td>
       </tr>
       <tr class="table__row">
         <td class="table__division">Jacob</td>
         <td class="table__division">Evans</td>
         <td class="table__division">Glasgow</td>
-        <i></i>
-        <i></i>
+        <td class="table__division">
+          <i class="fa-solid fa-pencil"></i>
+          <i class="fa-sharp fa-solid fa-bags-shopping"></i>
+        </td>
+      </tr>
       </tr>
       <tr class="table__row">
         <td class="table__division">James</td>
         <td class="table__division">Smith</td>
         <td class="table__division">Edynburg</td>
-        <i></i>
-        <i></i>
+        <td class="table__division">
+          <i class="fa-solid fa-pencil"></i>
+          <i class="fa-sharp fa-solid fa-bags-shopping"></i>
+        </td>
       </tr>
     </tbody>
+    <tfoot class="table_footer">
+      <tr class="table__row">
+        <th class="table__header-ceil" colspan="5">&copy; 2022 Zenon Marek Raubuć — Group Frontend Developers</th>
+      </tr>
+    </tfoot>
   </table>
 </body>
 
