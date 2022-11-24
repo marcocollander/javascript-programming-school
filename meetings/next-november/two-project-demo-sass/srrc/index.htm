@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Table with tooltip</title>
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <table class="table-classic">
+    <tr>
+      <th class="table-classic__th table-classic__th--color1" colspan="4">
+        Customers
+      </th>
+    </tr>
+    <tr>
+      <th class="table-classic__th">Name</th>
+      <th class="table-classic__th">Surname</th>
+      <th class="table-classic__th">City</th>
+      <th class="table-classic__th">Action</th>
+    </tr>
+    <tr>
+      <td class="table-classic__td table-classic__td--filter">
+        <input class="table-classic__input" placeholder="Find name..." />
+      </td>
+      <td class="table-classic__td table-classic__td--filter">
+        <input class="table-classic__input" placeholder="Find surname..." />
+      </td>
+      <td class="table-classic__td table-classic__td--filter">
+        <input class="table-classic__input" placeholder="Find city..." />
+      </td>
+      <td class="table-classic__td table-classic__td--text-center">
+        <button class="table-classic__button">Find</button>
+      </td>
+    </tr>
+    <tr class="table-classic__tr">
+      <td class="table-classic__td">Emily</td>
+      <td class="table-classic__td">Williams</td>
+      <td class="table-classic__td">Birmingham</td>
+      <td class="table-classic__td table-classic__td--position">
+        <i tabindex="0" data-descr="Edit" class="glyphicon glyphicon-pencil glyph-pencil-active glyph glyph-active"></i>
+        <i tabindex="0" data-descr="There is an order"
+          class="glyphicon glyphicon-trash glyph-trash-inactive glyph glyph-inactive m-l-20"></i>
+      </td>
+    </tr>
+    <tr class="table-classic__tr">
+      <td class="table-classic__td">Jacob</td>
+      <td class="table-classic__td">Evans</td>
+      <td class="table-classic__td">Glasgow</td>
+      <td class="table-classic__td table-classic__td--position">
+        <!--         tabindex=0 >> focusable -->
+        <i tabindex="0" data-descr="Edit" class="glyphicon glyphicon-pencil glyph-pencil-active glyph glyph-active"></i>
+        <i tabindex="0" data-descr="Delete"
+          class="glyphicon glyphicon-trash glyph-trash-active glyph-active m-l-20"></i>
+      </td>
+    </tr>
+    <tr class="table-classic__tr">
+      <td class="table-classic__td">James</td>
+      <td class="table-classic__td">Smith</td>
+      <td class="table-classic__td">Edynburg</td>
+      <td class="table-classic__td table-classic__td--position">
+        <i tabindex="0" data-descr="Edit" class="glyphicon glyphicon-pencil glyph-pencil-active glyph glyph-active"></i>
+        <i tabindex="0" data-descr="There is an order"
+          class="glyphicon glyphicon-trash glyph-trash-inactive m-l-20 glyph glyph-inactive"></i>
+      </td>
+    </tr>
+  </table>
+
+  <table class="table-classic m-t-40">
+    <tr>
+      <th class="table-classic__th table-classic__th--color2" colspan="4">
+        Products
+      </th>
+    </tr>
+    <tr>
+      <th class="table-classic__th">Name</th>
+      <th class="table-classic__th">Price (Euro)</th>
+      <th class="table-classic__th">Quantity in stock</th>
+      <th class="table-classic__th">Action</th>
+    </tr>
+    <tr>
+      <td class="table-classic__td table-classic__td--filter">
+        <input class="table-classic__input" placeholder="Find name..." />
+      </td>
+      <td class="table-classic__td table-classic__td--filter">
+        <input class="table-classic__input" placeholder="Find price..." />
+      </td>
+      <td class="table-classic__td table-classic__td--filter">
+        <input class="table-classic__input" placeholder="Find quantity in stock..." />
+      </td>
+      <td class="table-classic__td table-classic__td--text-center">
+        <button class="table-classic__button">Find</button>
+      </td>
+    </tr>
+    <tr class="table-classic__tr">
+      <td class="table-classic__td">Product 1</td>
+      <td class="table-classic__td">100</td>
+      <td class="table-classic__td">220</td>
+      <td class="table-classic__td table-classic__td--position">
+        <i tabindex="0" data-descr="Edit" class="glyphicon glyphicon-pencil glyph-pencil-active glyph glyph-active"></i>
+        <i tabindex="0" data-descr="There is an order"
+          class="glyphicon glyphicon-trash glyph-trash-inactive glyph glyph-inactive m-l-20"></i>
+      </td>
+    </tr>
+    <tr class="table-classic__tr">
+      <td class="table-classic__td">Product 2</td>
+      <td class="table-classic__td">250</td>
+      <td class="table-classic__td">200</td>
+      <td class="table-classic__td table-classic__td--position">
+        <!--         tabindex=0 >> focusable -->
+        <i tabindex="0" data-descr="Edit" class="glyphicon glyphicon-pencil glyph-pencil-active glyph glyph-active"></i>
+        <i tabindex="0" data-descr="Delete"
+          class="glyphicon glyphicon-trash glyph-trash-active glyph-active m-l-20"></i>
+      </td>
+    </tr>
+    <tr class="table-classic__tr">
+      <td class="table-classic__td">Product 3</td>
+      <td class="table-classic__td">310</td>
+      <td class="table-classic__td">70</td>
+      <td class="table-classic__td table-classic__td--position">
+        <i tabindex="0" data-descr="Edit" class="glyphicon glyphicon-pencil glyph-pencil-active glyph glyph-active"></i>
+        <i tabindex="0" data-descr="There is an order"
+          class="glyphicon glyphicon-trash glyph-trash-inactive m-l-20 glyph glyph-inactive"></i>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

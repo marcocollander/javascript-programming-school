@@ -1,0 +1,122 @@
+.body{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  margin-top:30px;
+}
+
+.table-classic{
+  font-family: Roboto;
+  font-size: 15px;
+  border-collapse:collapse;
+  width: 80%;
+  
+    &__tr:hover{
+    background-color: #dcdee1;
+    }
+  
+    &__th{
+    border: 2px #000 solid;
+    padding: 10px;
+    text-align:center;
+    background-color: #257bcb;
+    color: #fff;
+      &--color1{
+        background-color: #2f52ab;
+      }
+      &--color2{
+        background-color: #9d54f3;
+      }
+    }
+       
+    &__td{
+    border: 2px #000 solid;
+    padding: 10px;
+      
+      &--position{
+        text-align:center;
+      }
+      
+      &--filter{
+         padding: 2px;
+      }
+      
+      &--text-center{
+        text-align:center;
+      }
+    }
+  &__button{
+    background-color: #49bd49;
+    border-radius:5px;
+    border: 0px;
+    padding: 5px 15px;
+    color: #fff;
+    &:hover{
+      background-color: #399739;
+    }
+    &:focus{
+      background-color: #2e7c2e;
+    }
+  }
+  
+  &__input{
+      width:100%;
+  padding:10px 0px 10px 10px;
+  border: 1px solid #000;
+  border-radius:5px;
+  }
+
+  }
+
+
+.glyphicon.glyphicon-pencil.glyph-pencil-active{
+  color: #145c99;
+}
+
+.glyphicon.glyphicon-trash.glyph-trash-active{
+   color: #d70d0d;
+}
+
+.glyphicon.glyphicon-trash.glyph-trash-inactive{
+   color: #4a4242;
+}
+
+
+// .glyph[data-descr]{
+//   position: relative;
+// }
+
+.glyph-active[data-descr]{
+  cursor: grab;
+}
+
+.glyph-inactive[data-descr]{
+  cursor: help;
+}
+
+.glyph[data-descr]:hover::after,
+.glyph[data-descr]:focus::after {
+  content: attr(data-descr);
+  font-family: Roboto;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  min-width: 100px;
+  border: 1px #4f5458 solid;
+  border-radius: 5px;
+  background-color: #dde9f3;
+  padding: 12px;
+  color: #000000;
+  font-size: 14px;
+  z-index: 1;
+}
+
+
+/*-----utils-----*/
+.m-l-20{
+  margin-left: 20px;
+}
+
+.m-t-40{
+  margin-top:40px;
+}

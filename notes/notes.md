@@ -1,0 +1,1 @@
+https://devmentor.pl/b/metodologia-bem-w-css-i-sass
