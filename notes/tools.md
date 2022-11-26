@@ -87,7 +87,7 @@ Na GitHub można zakladać publiczne jaki i prywate repozytoria.
 
 Podstawowym źródłem informacji o oprogramowaniu `Git` jest dokumentacja zawarta w folderze:
 
-  `C:\Program Files\Git\doc\git\html`
+`C:\Program Files\Git\doc\git\html`
 
 Po wydaniu w wierszu poleceń komendy:
 
@@ -97,16 +97,16 @@ Po wydaniu w wierszu poleceń komendy:
 
 ujrzysz opis zawarty w pliku:
 
-  `C:\Program Files\Git\doc\git\html\git.html`
+`C:\Program Files\Git\doc\git\html\git.html`
 
 Kolejnymi dokumentami, które warto przeczytać, są:
 
-  ```
-  doc\git\html\gittutorial.html
-  doc\git\html\everyday.html
-  doc\git\html\user-manual.html
-  doc\git\html\gitglossary.html
-  ```
+```
+doc\git\html\gittutorial.html
+doc\git\html\everyday.html
+doc\git\html\user-manual.html
+doc\git\html\gitglossary.html
+```
 
 Opis poszczególnych komend Gita uzyskasz, wydając komendy:
 
@@ -279,7 +279,7 @@ Do sprawdzania zmian wprowadzonych w repozytorium służy komenda:
   git log
 ```
 
-Wydana bez parametrów drukuje informacje o ostatnich modyfikacjach w  projekcie. Do przewijania wyników komendy git log służą spacja oraz Q.
+Wydana bez parametrów drukuje informacje o ostatnich modyfikacjach w projekcie. Do przewijania wyników komendy git log służą spacja oraz Q.
 
 Polecenie:
 
@@ -304,7 +304,6 @@ Natomiast komenda:
 ```
 
 wydrukuje `commity` wykonane przez autora janka.
-
 
 ## Inspekcja kodu za pomocą narzędzia ESLint
 
@@ -1212,7 +1211,9 @@ Następnie `watch` powinien uruchamiać subtaski `watch:sassprefixer` i npm run 
 znów `npm-run-all`, tym razem z flagą `-p` (skrót od flagi `--parallel`). Pozwala na uruchamianie innych tasków w trybie
 równoległym, czyli tak, jakby każdy z nich był uruchomiony w osobnym oknie terminala.
 
-`"watch": "npm-run-all build:* build-dev:* -p watch:*"`
+```json
+"watch": "npm-run-all build:* build-dev:* -p watch:*"
+```
 
 ### **Update task runner**
 
@@ -1223,16 +1224,22 @@ przekopiowane przetestowane pliki z katalogu `src` po komendzie `build`.
 
 #### **onchange**
 
-`"watch:sassprefixer": "onchange \"src/sass/**/*.scss\" -- npm run build-dev"`,
-`"watch:copy": "onchange -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" -- copyfiles -a -u 1 {{changed}} dist"`
+```json
+"watch:sassprefixer": "onchange \"src/sass/**/*.scss\" -- npm run build-dev",
+"watch:copy": "onchange -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" -- copyfiles -a -u 1 {{changed}} dist"
+```
 
 #### **rimraf**
 
-`"build:clean": "rimraf dist && mkdirp dist",`
+```json
+"build:clean": "rimraf dist && mkdirp dist"
+```
 
 #### **copyfiles**
 
-`"build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",`
+```json
+"build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist"
+```
 
 ### \*\*Gotowy task runner"
 
